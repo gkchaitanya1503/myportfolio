@@ -74,6 +74,9 @@ section {
   width: 100%;
    transition: all 0.2s;
 }
+.project button:hover {
+  background-color: #0062cc; /* Darken the background color on hover */
+}
 
 .project-description {
   display: none;
