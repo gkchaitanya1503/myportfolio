@@ -291,6 +291,26 @@ img {
 #contact-form button:hover {
   background-color: #0062cc;
 }
+
+#contact-me-bubble {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 1.5rem;
+  padding: 10px 20px;
+  border-radius: 50%;
+  z-index: 999;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+#contact-me-bubble:hover {
+  transform: scale(1.1);
+}
+
 /* Collapsible projects styling */
 #projects .card {
   border: none;
