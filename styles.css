@@ -160,63 +160,64 @@ section {
 
 /* Resume Section */
 
-/* Style the Resume section */
-#resume {
-  background-color: #f8f9fa;
-  padding: 4rem 0;
-}
-
-#resume p {
-  margin-bottom: 1.5rem;
-}
-
-.resume-dropdown {
-  display: inline-flex;
-  margin-right: 1rem;
-}
-
-.dropdown-toggle {
+/* Style the resume section */
+.resume-section {
   background-color: #007bff;
-  border-color: #007bff;
-}
-
-.dropdown-menu {
-  background-color: #f8f9fa;
-  border-radius: 10px;
-  padding: 0.5rem;
-}
-
-.dropdown-item {
-  color: #333;
-  font-size: 1rem;
-  font-weight: 400;
-  padding: 0.5rem 1rem;
-}
-
-.btn-download {
-  background-color: #4CAF50;
-  border: none;
-  color: white;
-  padding: 0.5rem 1rem;
+  color: #fff;
+  padding: 4rem 0;
   text-align: center;
-  text-decoration: none;
-  display: inline-block;
+  position: relative;
+}
+
+/* Style the resume buttons */
+.resume-buttons {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.resume-buttons a {
+  background-color: #fff;
+  color: #007bff;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
   font-size: 1rem;
-  margin: 0.5rem 0;
+  text-decoration: none;
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
 }
 
-.btn-download:hover {
-  background-color: #3e8e41;
-  border-color: #3e8e41;
+.resume-buttons a:hover {
+  background-color: #007bff;
+  color: #fff;
 }
 
-.btn-download:active {
-  background-color: #3e8e41;
-  border-color: #3e8e41;
+/* Hide the resume download buttons by default */
+.resume-download-buttons {
+  display: none;
 }
 
-.btn-download:focus {
-  box-shadow: none;
+/* Style the resume download button */
+.resume-download-button {
+  background-color: #fff;
+  color: #007bff;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  margin-top: 2rem;
 }
 
+.resume-download-button:hover {
+  background-color: #007bff;
+  color: #fff;
+}
