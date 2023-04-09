@@ -157,3 +157,28 @@ section {
   font-size: 1.2rem;
   margin-bottom: 1rem;
 }
+
+/* Resume Section */
+
+.download-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.download-buttons a {
+  background-color: #007bff;
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+  margin: 0 1rem;
+  cursor: pointer;
+}
+
+.download-buttons a:hover {
+  background-color: #0056b3;
+}
