@@ -328,6 +328,30 @@
 <footer>
     &copy; Krishna Gutta 2023. All rights reserved.
 </footer>
+
+<!-- Contact Me Modal -->
+<div id="contact-me-modal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h3>Contact Me</h3>
+    <form id="contact-form">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</div>
+
+<!-- Contact Me Bubble -->
+<a href="#" id="contact-me-bubble">
+  <span role="img" aria-label="Message Emoji">💬</span>
+  Contact Me
+</a>
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
  $(document).ready(function() {
@@ -366,5 +390,25 @@
   // Initialize AOS animation library
   AOS.init();
 </script>
+document.getElementById('contact-me-bubble').addEventListener('click', function(e) {
+  e.preventDefault();
+  document.getElementById('contact-me-modal').style.display = 'block';
+});
+
+document.getElementsByClassName('close')[0].addEventListener('click', function() {
+  document.getElementById('contact-me-modal').style.display = 'none';
+});
+
+window.addEventListener('click', function(e) {
+  if (e.target == document.getElementById('contact-me-modal')) {
+    document.getElementById('contact-me-modal').style.display = 'none';
+  }
+});
+
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  // Handle form submission, like sending an email or storing the data
+});
+
 </body>
 </html>
