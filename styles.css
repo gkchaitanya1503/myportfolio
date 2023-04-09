@@ -159,9 +159,9 @@ section {
 }
 
 /* Resume Section */
+/* Resume Section */
 #resume {
-  position: relative;
-  padding: 2rem 0;
+  padding: 4rem 0;
   background-color: #f8f9fa;
 }
 
@@ -174,17 +174,17 @@ section {
 #resume p {
   font-size: 1.25rem;
   text-align: center;
+  margin-bottom: 2rem;
 }
 
 .resume-buttons {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .resume-buttons a {
-  display: inline-block;
   margin: 0.5rem;
   padding: 1rem 2rem;
   background-color: #007bff;
@@ -192,6 +192,7 @@ section {
   border-radius: 5px;
   text-decoration: none;
   font-weight: bold;
+  transition: all 0.2s;
 }
 
 .resume-buttons a:hover {
