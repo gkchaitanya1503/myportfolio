@@ -54,3 +54,28 @@ section {
 @media (min-width: 992px) {
   /* Add desktop-specific styles here */
 }
+.project {
+  margin-bottom: 1rem;
+}
+
+.project button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+  margin: 0.5rem 0;
+  cursor: pointer;
+  width: 100%;
+}
+
+.project-description {
+  display: none;
+  padding: 1rem;
+  background-color: #f1f1f1;
+  margin-top: 0.5rem;
+  border: 1px solid #4CAF50;
+}
