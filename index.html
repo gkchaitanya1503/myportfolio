@@ -127,8 +127,13 @@
         }
       }
     });
+    
+    $(".project > button").on("click", function() {
+      $(this).next(".project-description").slideToggle();
+    });
   });
 </script>
+
 <script>
   AOS.init();
 </script>
