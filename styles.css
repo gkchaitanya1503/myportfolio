@@ -99,6 +99,10 @@ section {
 .modal-title {
   font-weight: bold;
 }
+.modal-body .project-description ul {
+  padding-left: 40px;
+  list-style-type: disc;
+}
 
 .project-description ul {
   padding-left: 20px;
