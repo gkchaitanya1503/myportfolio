@@ -150,6 +150,8 @@ section {
 .about-me .profile-picture {
   width: 100%;
   max-width: 500px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .about-me .section-title {
@@ -168,7 +170,6 @@ section {
   margin-bottom: 1rem;
 }
 
-/* Resume Section */
 /* Resume Section */
 #resume {
   padding: 4rem 0;
