@@ -291,3 +291,28 @@ img {
 #contact-form button:hover {
   background-color: #0062cc;
 }
+/* Collapsible projects styling */
+#projects .card {
+  border: none;
+  background-color: transparent;
+  margin-bottom: 1rem;
+}
+
+#projects .card-header {
+  background-color: transparent;
+  padding: 0;
+  border: none;
+}
+
+#projects .btn-link {
+  text-decoration: none;
+  color: #007bff;
+  font-size: 1.25rem;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+#projects .btn-link:hover {
+  color: #0056b3;
+  text-decoration: none;
+}
