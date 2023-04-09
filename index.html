@@ -48,6 +48,7 @@
 </button>
 
 
+
   <!-- Project 1 Modal -->
   
   <div class="modal fade" id="project1" tabindex="-1" role="dialog" aria-labelledby="project1Label" aria-hidden="true">
@@ -62,38 +63,34 @@
       <div class="modal-body">
         <h4>Responsibilities:</h4>
         <ul class="project-responsibilities">
-           <li>Responsible for managing check-in hub app entirely built on Workday Extend. The app is used for managing entire Lyft’s performance management.</li>
-      <li>Developed an application for employees to enroll annually in RSU tax selection, providing employee self-service to elect the maximum tax deduction.</li>
-      <li>Developed Return to Office application which allows employees to upload vaccine verifications for HR approval.</li>
-      <li>Used Fieldsets, tabs, task flows, On Change functionality to develop more UI-friendly applications.</li>
-      <li>Responsible for maintaining business systems including Workday, Greenhouse, Docebo</li>
-      <li>Worked on multiple studio integrations, including integrations to and from Schwab stock vesting system, Integrations to GSuite, and Okta for User management.</li>
-      <li>Build Prism Data sets for Total employee compensation dashboards, including Base Pay, OTP, Bonuses, and Stock Vesting information.</li>
-      <li>Develop dashboards for employees to display four years of Compensation and intended vs. actual vesting information.</li>
-      <li>Responsible for delivering custom reports, including advanced, composite, and matrix reports to meet the business and analytical team requirements, including using Prism data sets.</li>
-      <li>Built PECI and PICOF interfaces to send data to ADP third-party payroll system.</li>
-        </ul>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
+           <li>Responsible for managing check-in hub app entirely built on Workday Extend. Theapp is used for managing the entire Lyft’s performance management.</li>
+<li>Developed an application for employees to enroll annually in RSU tax selection, providing employee self-service to elect the maximum tax deduction.</li>
+<li>Developed Return to Office application which allows employees to upload vaccine verifications for HR approval.</li>
+<li>Used Fieldsets, tabs, task flows, On Change functionality to develop more UI-friendly applications.</li>
+<li>Responsible for maintaining business systems including Workday, Greenhouse, Docebo</li>
+<li>Worked on multiple studio integrations, including integrations to and from Schwab stock vesting system, Integrations to GSuite, and Okta for User management.</li>
+<li>Build Prism Data sets for Total employee compensation dashboards, including Base Pay, OTP, Bonuses, and Stock Vesting information.</li>
+<li>Develop dashboards for employees to display four years of Compensation and intended vs. actual vesting information.</li>
+<li>Responsible for delivering custom reports, including advanced, composite, and matrix reports to meet the business and analytical team requirements, including using Prism data sets.</li>
+<li>Built PECI and PICOF interfaces to send data to ADP third-party payroll system.</li>
+</ul>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+</div>
 </div>
 
-
+  </div>
+</div>
   <!-- Add more projects and modals here -->
 </section>
-
-
 </main>
 <footer>
     &copy; Krishna Gutta 2023. All rights reserved.
 </footer>
-
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-  $(document).ready(function() {
+ $(document).ready(function() {
     // Smooth scrolling for internal links
     $('a[href*="#"]:not([href="#"])').click(function() {
       if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
@@ -107,31 +104,26 @@
         }
       }
     });
-
-    // Toggle project description
+	// Toggle project description
     $(".project > button").on("click", function() {
       $(this).next(".project-description").slideToggle();
     });
 
+    // Open project modal
     $('.btn-primary').click(function() {
-  var projectId = $(this).attr('data-target');
-  $(projectId).modal({
-    backdrop: 'static',
-    keyboard: false,
-    show: true,
-    focus: true
-  });
-});
+      var projectId = $(this).attr('data-target');
+      $(projectId).modal({
+        backdrop: 'static',
+        keyboard: false,
+        show: true,
+        focus: true
+      });
+    });
   });
 </script>
-
 <script>
   // Initialize AOS animation library
   AOS.init();
 </script>
-
-
 </body>
 </html>
-
-
