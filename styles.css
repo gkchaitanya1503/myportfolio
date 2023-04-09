@@ -25,12 +25,18 @@ nav a {
   color: #333;
   padding: 1rem;
   display: inline-block;
+  transition: color 0.3s ease;
 }
 
 nav a:hover {
   color: #007bff;
 }
 
+/* Style active navigation link */
+nav a.active {
+  color: #007bff;
+  font-weight: bold;
+}
 /* Style sections */
 section {
   padding: 2rem 0;
