@@ -7,6 +7,12 @@ body, h1, h2, h3, h4, h5, h6, p, ul {
 /* Set default font */
 body {
   font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* Add smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
 }
 
 /* Style header and footer */
@@ -21,10 +27,17 @@ nav a {
   color: #333;
   padding: 1rem;
   display: inline-block;
+  transition: color 0.3s ease;
 }
 
 nav a:hover {
   color: #007bff;
+}
+
+/* Style active navigation link */
+nav a.active {
+  color: #007bff;
+  font-weight: bold;
 }
 
 /* Style sections */
@@ -135,11 +148,11 @@ section {
 .about-me {
   background-color: #f8f9fa;
   padding: 4rem 0;
-}
-
 .about-me .profile-picture {
   width: 100%;
   max-width: 500px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .about-me .section-title {
@@ -158,7 +171,6 @@ section {
   margin-bottom: 1rem;
 }
 
-/* Resume Section */
 /* Resume Section */
 #resume {
   padding: 4rem 0;
@@ -197,4 +209,24 @@ section {
 
 .resume-buttons a:hover {
   opacity: 0.8;
+}
+
+/* Add responsive design for images */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Add hover effect for project-description */
+.project-description {
+  display: none;
+  padding: 1rem;
+  background-color: #f1f1f1;
+  margin-top: 0.5rem;
+  border: 1px solid #007bff;
+  transition: all 0.3s ease;
+}
+
+.project:hover .project-description {
+  display: block;
 }
