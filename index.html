@@ -43,9 +43,10 @@
   <h2>Projects</h2>
 
   <!-- Project 1 -->
-  <button type="button" class="btn btn-primary project-button" data-target="#project1">
+<button type="button" class="project-btn" data-target="#project1">
   Lyft Inc - Sr. Workday Systems Engineer (Jan 2020 – Present)
 </button>
+
 
 
   <!-- Project 1 Modal -->
@@ -160,10 +161,14 @@
     });
 
     // Open project modal
-    $('.project button').click(function() {
-      var projectDescription = $(this).siblings('.project-description').html();
-      $('#projectModal .modal-body').html(projectDescription);
-      $('#projectModal').modal('show');
+    $('.project-btn').click(function() {
+      var projectId = $(this).attr('data-target');
+      $(projectId).modal({
+        backdrop: 'static',
+        keyboard: false,
+        show: true,
+        focus: true
+      });
     });
   });
 </script>
