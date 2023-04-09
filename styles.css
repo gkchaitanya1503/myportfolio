@@ -160,14 +160,41 @@ section {
 
 /* Resume Section */
 
-.download-buttons {
-  display: flex;
-  justify-content: center;
-  margin-top: 2rem;
+/* Style the Resume section */
+#resume {
+  background-color: #f8f9fa;
+  padding: 4rem 0;
 }
 
-.download-buttons a {
+#resume p {
+  margin-bottom: 1.5rem;
+}
+
+.resume-dropdown {
+  display: inline-flex;
+  margin-right: 1rem;
+}
+
+.dropdown-toggle {
   background-color: #007bff;
+  border-color: #007bff;
+}
+
+.dropdown-menu {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  padding: 0.5rem;
+}
+
+.dropdown-item {
+  color: #333;
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 0.5rem 1rem;
+}
+
+.btn-download {
+  background-color: #4CAF50;
   border: none;
   color: white;
   padding: 0.5rem 1rem;
@@ -175,10 +202,21 @@ section {
   text-decoration: none;
   display: inline-block;
   font-size: 1rem;
-  margin: 0 1rem;
+  margin: 0.5rem 0;
   cursor: pointer;
 }
 
-.download-buttons a:hover {
-  background-color: #0056b3;
+.btn-download:hover {
+  background-color: #3e8e41;
+  border-color: #3e8e41;
 }
+
+.btn-download:active {
+  background-color: #3e8e41;
+  border-color: #3e8e41;
+}
+
+.btn-download:focus {
+  box-shadow: none;
+}
+

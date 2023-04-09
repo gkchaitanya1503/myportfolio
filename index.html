@@ -261,17 +261,24 @@
 
 <!-- Resume Section -->
 
-<section id="resume">
+<section id="resume" class="custom-style">
   <div class="container">
     <h2 class="section-title">Resume</h2>
-    <p class="section-description">Download my resume in different formats.</p>
-    <div class="download-buttons">
-      <a href="/path/to/default-resume.pdf" download>Default</a>
-      <a href="/path/to/2-pager-resume.pdf" download>2 Pager</a>
-      <a href="/path/to/detailed-resume.pdf" download>Detailed</a>
+    <p>Download my resume in the format you prefer:</p>
+    <div class="dropdown resume-dropdown">
+      <button class="btn btn-primary dropdown-toggle" type="button" id="resume-dropdown-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Default
+      </button>
+      <div class="dropdown-menu" aria-labelledby="resume-dropdown-menu">
+        <a class="dropdown-item" href="path/to/default/resume.pdf" download>Default</a>
+        <a class="dropdown-item" href="path/to/2pager/resume.pdf" download>2 Pager</a>
+        <a class="dropdown-item" href="path/to/detailed/resume.pdf" download>Detailed</a>
+      </div>
+      <button class="btn btn-download" type="button" onclick="location.href='path/to/default/resume.pdf'" download>Download</button>
     </div>
   </div>
 </section>
+
 
 
 
