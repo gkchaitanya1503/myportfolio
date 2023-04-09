@@ -93,35 +93,36 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
  $(document).ready(function() {
-    // Smooth scrolling for internal links
-    $('a[href*="#"]:not([href="#"])').click(function() {
-      if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-        var target = $(this.hash);
-        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-        if (target.length) {
-          $('html, body').animate({
-            scrollTop: target.offset().top
-          }, 1000);
-          return false;
-        }
+  // Smooth scrolling for internal links
+  $('a[href*="#"]:not([href="#"])').click(function() {
+    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      if (target.length) {
+        $('html, body').animate({
+          scrollTop: target.offset().top
+        }, 1000);
+        return false;
       }
-    });
-	// Toggle project description
-    $(".project > button").on("click", function() {
-      $(this).next(".project-description").slideToggle();
-    });
+    }
+  });
+  
+  // Toggle project description
+  $(".project > button").on("click", function() {
+    $(this).next(".project-description").slideToggle();
+  });
 
-    // Open project modal
-    $('.btn-primary').click(function() {
-      var projectId = $(this).attr('data-target');
-      $(projectId).modal({
-        backdrop: 'static',
-        keyboard: false,
-        show: true,
-        focus: true
-      });
+  // Open project modal
+  $('.project-btn').click(function() {
+    var projectId = $(this).attr('data-target');
+    $(projectId).modal({
+      backdrop: 'static',
+      keyboard: false,
+      show: true
     });
   });
+});
+
 </script>
 <script>
   // Initialize AOS animation library
