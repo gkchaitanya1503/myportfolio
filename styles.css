@@ -72,6 +72,7 @@ section {
   margin: 0.5rem 0;
   cursor: pointer;
   width: 100%;
+   transition: all 0.2s;
 }
 
 .project-description {
