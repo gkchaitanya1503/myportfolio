@@ -123,3 +123,7 @@ section {
   text-decoration: none;
   opacity: 0.75;
 }
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
