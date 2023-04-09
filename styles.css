@@ -56,13 +56,12 @@ section {
   /* Add desktop-specific styles here */
 }
 
-/* Project section styles */
 .project {
   margin-bottom: 1rem;
 }
 
 .project button {
-  background-color: #007bff; /* Updated color to match the theme */
+  background-color: #4CAF50;
   border: none;
   color: white;
   padding: 0.5rem 1rem;
@@ -73,11 +72,6 @@ section {
   margin: 0.5rem 0;
   cursor: pointer;
   width: 100%;
-  transition: all 0.2s; /* Added a smooth transition on hover */
-}
-
-.project button:hover {
-  background-color: #0062cc; /* Darken the background color on hover */
 }
 
 .project-description {
@@ -85,8 +79,7 @@ section {
   padding: 1rem;
   background-color: #f1f1f1;
   margin-top: 0.5rem;
-  border: 1px solid #007bff; /* Updated border color to match the theme */
-  border-radius: 5px; /* Added rounded corners */
+  border: 1px solid #4CAF50;
 }
 
 .modal-content {
@@ -130,7 +123,6 @@ section {
   text-decoration: none;
   opacity: 0.75;
 }
-
 .btn-primary {
   background-color: #007bff;
   border-color: #007bff;
