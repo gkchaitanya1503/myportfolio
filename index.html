@@ -140,6 +140,7 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
   $(document).ready(function() {
+    // Smooth scrolling for internal links
     $('a[href*="#"]:not([href="#"])').click(function() {
       if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
         var target = $(this.hash);
@@ -152,51 +153,26 @@
         }
       }
     });
-    
+
+    // Toggle project description
     $(".project > button").on("click", function() {
       $(this).next(".project-description").slideToggle();
     });
-  });
-</script>
-<script>
-  $(document).ready(function() {
-    $('.project-button').click(function() {
-      var projectId = $(this).attr('data-target');
-      $(projectId).modal({
-        backdrop: 'static',
-        keyboard: false,
-        show: true,
-        focus: true
-      });
+
+    // Open project modal
+    $('.project button').click(function() {
+      var projectDescription = $(this).siblings('.project-description').html();
+      $('#projectModal .modal-body').html(projectDescription);
+      $('#projectModal').modal('show');
     });
   });
 </script>
 
-
 <script>
+  // Initialize AOS animation library
   AOS.init();
 </script>
-<script>
-    $(".project-btn").on("click", function() {
-        $(this).next(".project-description").slideToggle();
-    });
-</script>
-<div class="projects">
-  <h2>Projects</h2>
 
-  <div class="project">
-    <button>Lyft Inc - Sr. Workday Systems Engineer (Jan 2020 – Present)</button>
-    <div class="project-description">
-      <h4>Responsibilities:</h4>
-      <ul class="project-responsibilities">
-        <!-- Add the list of responsibilities here -->
-      </ul>
-    </div>
-  </div>
-
-  <!-- Add more projects here -->
-
-</div>
 
 </body>
 </html>
