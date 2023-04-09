@@ -159,65 +159,49 @@ section {
 }
 
 /* Resume Section */
-
-/* Style the resume section */
-.resume-section {
-  background-color: #007bff;
-  color: #fff;
-  padding: 4rem 0;
-  text-align: center;
-  position: relative;
+#resume {
+  background-color: #f8f9fa;
+  padding: 2rem;
 }
 
-/* Style the resume buttons */
+#resume h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+#resume p {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+}
+
 .resume-buttons {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
   display: flex;
   justify-content: center;
-  gap: 1rem;
-  margin-bottom: 2rem;
 }
 
 .resume-buttons a {
-  background-color: #fff;
-  color: #007bff;
-  border: none;
-  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 4px;
   padding: 0.5rem 1rem;
+  margin: 0 1rem;
   font-size: 1rem;
   text-decoration: none;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
 }
 
 .resume-buttons a:hover {
-  background-color: #007bff;
-  color: #fff;
+  opacity: 0.8;
 }
 
-/* Hide the resume download buttons by default */
-.resume-download-buttons {
-  display: none;
-}
+@media (max-width: 768px) {
+  .resume-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
 
-/* Style the resume download button */
-.resume-download-button {
-  background-color: #fff;
-  color: #007bff;
-  border: none;
-  border-radius: 5px;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  margin-top: 2rem;
-}
-
-.resume-download-button:hover {
-  background-color: #007bff;
-  color: #fff;
+  .resume-buttons a {
+    margin: 0.5rem 0;
+  }
 }
