@@ -1,0 +1,46 @@
+<section class="container" id="resume">
+        <h1 class="display-4">Resume</h1>
+        <h2 class="h3">Workday Integration Consultant</h2>
+        <h3 class="h4">Qualifications Profile</h3>
+        <p class="lead">
+            Experienced IT professional with expertise in Workday's Human Capital Management, Recruitment, Payroll, and
+            Benefits modules. Skilled in developing and maintaining integration systems using Studio, PRISM, and Extend
+            applications. Proven ability to deliver cost-effective and high-performance technology solutions. Strategic
+            leader with cross-functional team management skills and strong relationship building abilities.
+        </p>
+
+        <h3 class="h4">Areas of Expertise</h3>
+        <ul class="list-unstyled">
+            <li>Human Resource Management</li>
+            <li>Recruiting</li>
+            <li>Workday Studio</li>
+            <li>Greenhouse</li>
+            <li>EIB and Document Transformation</li>
+            <li>PRISM</li>
+            <li>Workday EXTEND</li>
+            <li>Docebo</li>
+        </ul>
+
+        <!-- Add the rest of your resume content here using similar HTML structure -->
+
+        <h3>Education</h3>
+        <p>
+            Master of Science in Electrical Engineering: 2014<br>
+            Texas A&M University—Kingsville, Kingsville, TX, USA
+        </p>
+        <p>
+            Bachelor of Engineering in Electronics and Communication Engineering: 2013<br>
+            KL University, Guntur, AP, India
+        </p>
+    </section>
+
+    <section id="contact">
+        <h1>Contact</h1>
+        <p>Email: your.email@example.com</p>
+        <p>Phone: +1 (555) 123-4567</p>
+        <p>
+            <a href="https://www.linkedin.com/in/yourusername" target="_blank">LinkedIn</a> |
+            <a href="https://github.com/yourusername" target="_blank">GitHub</a> |
+            <a href="https://twitter.com/yourusername" target="_blank">Twitter</a>
+        </p>
+    </section>
