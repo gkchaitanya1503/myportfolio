@@ -209,3 +209,22 @@ section {
 .resume-buttons a:hover {
   opacity: 0.8;
 }
+/* Add responsive design for images */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Add hover effect for project-description */
+.project-description {
+  display: none;
+  padding: 1rem;
+  background-color: #f1f1f1;
+  margin-top: 0.5rem;
+  border: 1px solid #007bff;
+  transition: all 0.3s ease;
+}
+
+.project:hover .project-description {
+  display: block;
+}
