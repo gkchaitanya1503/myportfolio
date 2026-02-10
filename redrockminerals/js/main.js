@@ -4,11 +4,15 @@
 (function() {
   'use strict';
 
+  // ==================== AOS INIT ====================
+  if (typeof AOS !== 'undefined') {
+    AOS.init({ once: true, duration: 700, offset: 50 });
+  }
+
   // ==================== NAVIGATION ====================
   var nav = document.querySelector('.nav');
-  var navToggle = document.querySelector('.nav-toggle');
-  var navOverlay = document.querySelector('.nav-mobile-overlay');
-  var navLinks = document.querySelectorAll('.nav-mobile-overlay .nav-link');
+  var navToggle = document.getElementById('navToggle');
+  var navOverlay = document.getElementById('mobileMenu');
 
   // Scroll effect
   window.addEventListener('scroll', function() {
@@ -18,83 +22,69 @@
   // Mobile toggle
   if (navToggle && navOverlay) {
     navToggle.addEventListener('click', function() {
+      var isOpen = navOverlay.classList.contains('open');
       navToggle.classList.toggle('active');
       navOverlay.classList.toggle('open');
-      document.body.style.overflow = navOverlay.classList.contains('open') ? 'hidden' : '';
+      navToggle.setAttribute('aria-expanded', !isOpen);
+      document.body.style.overflow = !isOpen ? 'hidden' : '';
     });
 
-    navLinks.forEach(function(link) {
+    navOverlay.querySelectorAll('.nav-link').forEach(function(link) {
       link.addEventListener('click', function() {
         navToggle.classList.remove('active');
         navOverlay.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = '';
       });
     });
   }
 
-  // Active nav link
-  var currentPage = window.location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav-link').forEach(function(link) {
-    var href = link.getAttribute('href');
-    if (href === currentPage || (currentPage === '' && href === 'index.html')) {
-      link.classList.add('active');
-    }
-  });
-
   // ==================== SCROLL REVEAL ====================
   var reveals = document.querySelectorAll('.reveal');
-  var revealObserver = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+  if (reveals.length > 0) {
+    var revealObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-  reveals.forEach(function(el) {
-    revealObserver.observe(el);
-  });
+    reveals.forEach(function(el) { revealObserver.observe(el); });
+  }
 
   // ==================== COUNTER ANIMATION ====================
-  var counters = document.querySelectorAll('.stat-number[data-target]');
+  // Selects both .stat-number[data-target] AND span[data-target] inside .stat-number
+  var counters = document.querySelectorAll('[data-target]');
   var counterDone = false;
 
-  var counterObserver = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting && !counterDone) {
-        counterDone = true;
-        animateCounters();
-        counterObserver.disconnect();
-      }
-    });
-  }, { threshold: 0.3 });
-
-  var statsSection = document.querySelector('.stats-section');
-  if (statsSection) counterObserver.observe(statsSection);
-
   function animateCounters() {
+    if (counterDone) return;
+    counterDone = true;
     counters.forEach(function(counter) {
       var target = parseFloat(counter.getAttribute('data-target'));
+      if (isNaN(target)) return;
       var start = null;
       var duration = 2000;
+      var isLarge = target >= 1000;
 
       function step(timestamp) {
         if (!start) start = timestamp;
         var progress = Math.min((timestamp - start) / duration, 1);
-        var eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+        var eased = 1 - Math.pow(1 - progress, 3);
         var current = Math.floor(eased * target);
 
-        // Handle decimals
-        if (target % 1 !== 0) {
-          current = (eased * target).toFixed(1);
+        if (isLarge) {
+          counter.textContent = current.toLocaleString();
+        } else {
+          counter.textContent = current;
         }
 
-        counter.textContent = current;
         if (progress < 1) {
           requestAnimationFrame(step);
         } else {
-          counter.textContent = target % 1 !== 0 ? target.toFixed(1) : target;
+          counter.textContent = isLarge ? target.toLocaleString() : target;
         }
       }
 
@@ -102,7 +92,20 @@
     });
   }
 
-  // ==================== SMOOTH SCROLL (same-page links) ====================
+  var statsSection = document.querySelector('.stats-section');
+  if (statsSection && counters.length > 0) {
+    var counterObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          animateCounters();
+          counterObserver.disconnect();
+        }
+      });
+    }, { threshold: 0.2 });
+    counterObserver.observe(statsSection);
+  }
+
+  // ==================== SMOOTH SCROLL ====================
   document.querySelectorAll('a[href^="#"]').forEach(function(link) {
     link.addEventListener('click', function(e) {
       var targetId = this.getAttribute('href');
@@ -118,49 +121,25 @@
   });
 
   // ==================== PARTICLES.JS INIT ====================
-  var particlesContainer = document.getElementById('particles-js');
-  if (particlesContainer && typeof particlesJS !== 'undefined') {
+  if (document.getElementById('particles-js') && typeof particlesJS !== 'undefined') {
+    var particleCount = window.innerWidth < 768 ? 20 : 50;
     particlesJS('particles-js', {
       particles: {
-        number: { value: 50, density: { enable: true, value_area: 1000 } },
+        number: { value: particleCount, density: { enable: true, value_area: 1000 } },
         color: { value: ['#E63946', '#FFD700', '#00F5FF'] },
         shape: { type: 'circle' },
         opacity: { value: 0.3, random: true },
         size: { value: 2.5, random: true },
-        line_linked: {
-          enable: true,
-          distance: 150,
-          color: '#E63946',
-          opacity: 0.08,
-          width: 1
-        },
-        move: {
-          enable: true,
-          speed: 0.8,
-          direction: 'none',
-          random: true,
-          out_mode: 'out'
-        }
+        line_linked: { enable: true, distance: 150, color: '#E63946', opacity: 0.08, width: 1 },
+        move: { enable: true, speed: 0.8, direction: 'none', random: true, out_mode: 'out' }
       },
       interactivity: {
         detect_on: 'canvas',
-        events: {
-          onhover: { enable: true, mode: 'grab' },
-          onclick: { enable: false },
-          resize: true
-        },
-        modes: {
-          grab: { distance: 140, line_linked: { opacity: 0.2 } }
-        }
+        events: { onhover: { enable: true, mode: 'grab' }, onclick: { enable: false }, resize: true },
+        modes: { grab: { distance: 140, line_linked: { opacity: 0.2 } } }
       },
       retina_detect: true
     });
-  }
-
-  // Reduce particles on mobile
-  if (window.innerWidth < 768 && particlesContainer) {
-    // Particles.js will auto-reduce, but we add a class for CSS control
-    particlesContainer.classList.add('particles-mobile');
   }
 
   // ==================== COPYRIGHT YEAR ====================

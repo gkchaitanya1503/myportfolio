@@ -30,8 +30,8 @@
     <meta name="twitter:image" content="https://www.redrockminerals.com/images/og-image.jpg">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="images/favicon.png">
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+    <link rel="apple-touch-icon" href="images/favicon.svg">
 
     <!-- Preconnect for Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -126,14 +126,14 @@
             </a>
 
             <!-- Desktop Navigation Links -->
-            <ul class="nav-links" role="menubar">
-                <li role="none"><a href="index.html" class="nav-link active" role="menuitem" aria-current="page">Home</a></li>
-                <li role="none"><a href="products.html" class="nav-link" role="menuitem">Products</a></li>
-                <li role="none"><a href="industries.html" class="nav-link" role="menuitem">Industries</a></li>
-                <li role="none"><a href="exports.html" class="nav-link" role="menuitem">Exports</a></li>
-                <li role="none"><a href="about.html" class="nav-link" role="menuitem">About Us</a></li>
-                <li role="none"><a href="contact.html" class="nav-link" role="menuitem">Contact Us</a></li>
-            </ul>
+            <div class="nav-links" role="menubar">
+                <a href="index.html" class="nav-link active" role="menuitem" aria-current="page">Home</a>
+                <a href="about.html" class="nav-link" role="menuitem">About</a>
+                <a href="products.html" class="nav-link" role="menuitem">Products</a>
+                <a href="industries.html" class="nav-link" role="menuitem">Industries</a>
+                <a href="exports.html" class="nav-link" role="menuitem">Exports</a>
+                <a href="contact.html" class="nav-link" role="menuitem">Contact</a>
+            </div>
 
             <!-- Mobile Hamburger Toggle -->
             <button class="nav-toggle" id="navToggle" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobileMenu">
@@ -145,14 +145,12 @@
 
         <!-- Mobile Menu Overlay -->
         <div class="nav-mobile-overlay" id="mobileMenu" role="dialog" aria-label="Mobile navigation menu">
-            <ul role="menu">
-                <li role="none"><a href="index.html" class="nav-link active" role="menuitem">Home</a></li>
-                <li role="none"><a href="products.html" class="nav-link" role="menuitem">Products</a></li>
-                <li role="none"><a href="industries.html" class="nav-link" role="menuitem">Industries</a></li>
-                <li role="none"><a href="exports.html" class="nav-link" role="menuitem">Exports</a></li>
-                <li role="none"><a href="about.html" class="nav-link" role="menuitem">About Us</a></li>
-                <li role="none"><a href="contact.html" class="nav-link" role="menuitem">Contact Us</a></li>
-            </ul>
+            <a href="index.html" class="nav-link active">Home</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="products.html" class="nav-link">Products</a>
+            <a href="industries.html" class="nav-link">Industries</a>
+            <a href="exports.html" class="nav-link">Exports</a>
+            <a href="contact.html" class="nav-link">Contact</a>
         </div>
     </nav>
 
@@ -187,7 +185,8 @@
 
         <!-- Scroll Indicator -->
         <div class="hero-scroll" aria-label="Scroll down to explore">
-            <span></span>
+            <span>Scroll</span>
+            <div class="hero-scroll-line"></div>
         </div>
     </section>
 
@@ -328,7 +327,7 @@
                 <h2 class="section-title font-display">The Red Rock Advantage</h2>
                 <div class="section-line" aria-hidden="true"></div>
                 <p class="section-desc">
-                    We combine decades of mining expertise with modern practices to deliver unmatched quality and service.
+                    We combine years of mining expertise with modern practices to deliver unmatched quality and service.
                 </p>
             </div>
 
@@ -537,54 +536,43 @@
     <!-- ===== CHAT WIDGET ===== -->
     <div id="chat-widget" aria-label="Chat assistant">
         <!-- Chat Toggle Button -->
-        <button class="chat-toggle" id="chatToggle" aria-label="Open chat assistant" aria-expanded="false" aria-controls="chatWindow">
-            <i class="fas fa-robot" aria-hidden="true"></i>
+        <button id="chat-toggle" aria-label="Open chat assistant">
+            <i id="chat-toggle-icon" class="fas fa-robot" aria-hidden="true"></i>
         </button>
 
         <!-- Chat Window -->
-        <div class="chat-window" id="chatWindow" role="dialog" aria-label="Chat with Red Rock Minerals assistant" aria-hidden="true">
-            <!-- Chat Header -->
+        <div id="chat-window" role="dialog" aria-label="Chat with Red Rock Minerals AI assistant">
+            <!-- Header -->
             <div class="chat-header">
                 <div class="chat-header-info">
-                    <i class="fas fa-robot" aria-hidden="true"></i>
-                    <div>
-                        <h4>Red Rock Assistant</h4>
-                        <span class="chat-status">Online</span>
+                    <div class="chat-avatar"><i class="fas fa-robot" aria-hidden="true"></i></div>
+                    <div class="chat-header-text">
+                        <h4>Red Rock AI</h4>
+                        <div class="chat-status"><span class="chat-status-dot"></span> Online</div>
                     </div>
                 </div>
-                <button class="chat-close" id="chatClose" aria-label="Close chat window">
-                    <i class="fas fa-times" aria-hidden="true"></i>
-                </button>
+                <button id="chat-close" aria-label="Close chat window"><i class="fas fa-times" aria-hidden="true"></i></button>
             </div>
 
-            <!-- Chat Messages -->
-            <div class="chat-messages" id="chatMessages" aria-live="polite" aria-label="Chat messages">
-                <div class="chat-message bot-message">
-                    <div class="message-avatar" aria-hidden="true">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <div class="message-content">
-                        <p>Welcome to Red Rock Minerals! How can I help you today? Feel free to ask about our products, exports, or services.</p>
-                    </div>
+            <!-- Messages -->
+            <div id="chat-messages" aria-live="polite">
+                <div class="chat-msg bot">
+                    <div class="chat-bubble">Welcome to Red Rock Minerals! How can I help you today? Feel free to ask about our products, exports, or services.</div>
                 </div>
             </div>
 
-            <!-- Suggestion Buttons -->
-            <div class="chat-suggestions" id="chatSuggestions" aria-label="Suggested questions">
-                <button class="chat-suggestion-btn" data-message="Tell me about your products">Tell me about your products</button>
-                <button class="chat-suggestion-btn" data-message="Export information">Export information</button>
-                <button class="chat-suggestion-btn" data-message="How to contact you?">How to contact you?</button>
-                <button class="chat-suggestion-btn" data-message="What industries do you serve?">What industries do you serve?</button>
+            <!-- Quick Suggestions -->
+            <div id="chat-suggestions" aria-label="Suggested questions">
+                <button class="chat-suggestion" data-q="Tell me about your products">Products</button>
+                <button class="chat-suggestion" data-q="What are your export capabilities?">Exports</button>
+                <button class="chat-suggestion" data-q="How can I contact you?">Contact</button>
+                <button class="chat-suggestion" data-q="What industries do you serve?">Industries</button>
             </div>
 
-            <!-- Chat Input -->
-            <div class="chat-input-area">
-                <form id="chatForm" aria-label="Send a message">
-                    <input type="text" id="chatInput" placeholder="Type your message..." autocomplete="off" aria-label="Type your message">
-                    <button type="submit" aria-label="Send message">
-                        <i class="fas fa-paper-plane" aria-hidden="true"></i>
-                    </button>
-                </form>
+            <!-- Input -->
+            <div class="chat-input-wrap">
+                <input type="text" id="chat-input" placeholder="Type your message..." autocomplete="off" aria-label="Type your message">
+                <button id="chat-send" aria-label="Send message"><i class="fas fa-paper-plane" aria-hidden="true"></i></button>
             </div>
         </div>
     </div>
@@ -602,8 +590,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 
     <!-- Custom Scripts -->
-    <script src="js/main.js" defer></script>
-    <script src="js/chatbot-config.js" defer></script>
-    <script src="js/chatbot.js" defer></script>
+    <script src="js/main.js"></script>
+    <script src="js/chatbot-config.js"></script>
+    <script src="js/chatbot.js"></script>
 </body>
 </html>

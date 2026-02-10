@@ -43,12 +43,13 @@
           <a href="index.html" class="nav-link">Home</a>
           <a href="about.html" class="nav-link">About</a>
           <a href="products.html" class="nav-link">Products</a>
+          <a href="industries.html" class="nav-link">Industries</a>
           <a href="exports.html" class="nav-link active">Exports</a>
           <a href="contact.html" class="nav-link">Contact</a>
         </div>
 
         <!-- Mobile Toggle -->
-        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
           <span></span>
           <span></span>
           <span></span>
@@ -58,10 +59,11 @@
   </nav>
 
   <!-- Mobile Overlay -->
-  <div class="nav-mobile-overlay" id="nav-overlay">
+  <div class="nav-mobile-overlay" id="mobileMenu">
     <a href="index.html" class="nav-link">Home</a>
     <a href="about.html" class="nav-link">About</a>
     <a href="products.html" class="nav-link">Products</a>
+    <a href="industries.html" class="nav-link">Industries</a>
     <a href="exports.html" class="nav-link active">Exports</a>
     <a href="contact.html" class="nav-link">Contact</a>
   </div>
@@ -383,17 +385,17 @@
   <div id="chat-widget">
     <!-- Toggle Button -->
     <button id="chat-toggle" aria-label="Open chat">
-      <i class="fas fa-comments" id="chat-toggle-icon"></i>
+      <i id="chat-toggle-icon" class="fas fa-robot"></i>
     </button>
 
     <!-- Chat Window -->
     <div id="chat-window">
-      <div id="chat-header">
-        <div id="chat-header-info">
-          <div id="chat-avatar"><i class="fas fa-robot"></i></div>
-          <div>
-            <strong>Red Rock AI</strong>
-            <span id="chat-status">Online</span>
+      <div class="chat-header">
+        <div class="chat-header-info">
+          <div class="chat-avatar"><i class="fas fa-robot"></i></div>
+          <div class="chat-header-text">
+            <h4>Red Rock AI</h4>
+            <div class="chat-status"><span class="chat-status-dot"></span> Online</div>
           </div>
         </div>
         <button id="chat-close" aria-label="Close chat"><i class="fas fa-times"></i></button>
@@ -404,11 +406,11 @@
         </div>
       </div>
       <div id="chat-suggestions">
-        <button class="chat-suggestion" data-msg="What minerals do you export?">Export Products</button>
-        <button class="chat-suggestion" data-msg="Which countries do you export to?">Destinations</button>
-        <button class="chat-suggestion" data-msg="What are your shipping terms?">Shipping Terms</button>
+        <button class="chat-suggestion" data-q="What minerals do you export?">Export Products</button>
+        <button class="chat-suggestion" data-q="Which countries do you export to?">Destinations</button>
+        <button class="chat-suggestion" data-q="What are your shipping terms?">Shipping Terms</button>
       </div>
-      <div id="chat-input-wrap">
+      <div class="chat-input-wrap">
         <input type="text" id="chat-input" placeholder="Ask about our exports..." autocomplete="off">
         <button id="chat-send" aria-label="Send message"><i class="fas fa-paper-plane"></i></button>
       </div>
@@ -429,10 +431,6 @@
   <script src="js/chatbot-config.js"></script>
   <script src="js/chatbot.js"></script>
 
-  <!-- AOS Init -->
-  <script>
-    AOS.init({ duration: 800, once: true, offset: 80 });
-  </script>
 
 </body>
 </html>

@@ -42,12 +42,13 @@
           <a href="index.html" class="nav-link" role="menuitem">Home</a>
           <a href="about.html" class="nav-link" role="menuitem">About</a>
           <a href="products.html" class="nav-link active" role="menuitem" aria-current="page">Products</a>
+          <a href="industries.html" class="nav-link" role="menuitem">Industries</a>
           <a href="exports.html" class="nav-link" role="menuitem">Exports</a>
           <a href="contact.html" class="nav-link" role="menuitem">Contact</a>
         </div>
 
         <!-- Mobile Toggle -->
-        <button class="nav-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle mobile menu" aria-expanded="false">
           <span></span>
           <span></span>
           <span></span>
@@ -58,10 +59,11 @@
   </nav>
 
   <!-- Mobile Overlay -->
-  <div class="nav-mobile-overlay" role="dialog" aria-label="Mobile navigation menu">
+  <div class="nav-mobile-overlay" id="mobileMenu" role="dialog" aria-label="Mobile navigation menu">
     <a href="index.html" class="nav-link">Home</a>
     <a href="about.html" class="nav-link">About</a>
     <a href="products.html" class="nav-link active" aria-current="page">Products</a>
+    <a href="industries.html" class="nav-link">Industries</a>
     <a href="exports.html" class="nav-link">Exports</a>
     <a href="contact.html" class="nav-link">Contact</a>
   </div>
@@ -443,7 +445,6 @@
 
   <!-- AOS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-  <script>AOS.init({ once: true, duration: 800 });</script>
 
   <!-- Site JS -->
   <script src="js/main.js"></script>
