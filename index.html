@@ -3,14 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Krishna Gutta - Workday Integration Consultant</title>
-    <meta name="description" content="Portfolio of Krishna Gutta — Lead Systems Engineer and Workday Integration Consultant with expertise in HCM, Payroll, Benefits, Studio, PRISM, and Extend.">
-    <meta name="keywords" content="Workday Integration Consultant, Human Capital Management, Resume, Portfolio, Krishna Gutta">
+    <title>Krishna Gutta — Workday Solutions Architect &amp; Lead Systems Engineer</title>
+    <meta name="description" content="Krishna Gutta — 10+ years transforming enterprise HR through Workday integrations, Extend applications, and PRISM analytics at Lyft, Gilead, USAA, and more.">
+    <meta name="keywords" content="Workday Integration Consultant, HCM, Payroll, PRISM, Extend, Studio, Krishna Gutta">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 
     <!-- Bootstrap 4.5 CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!-- Font Awesome 5 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- AOS Animations -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css">
     <!-- Custom CSS -->
@@ -31,7 +36,9 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="#">Krishna Gutta</a>
+      <a class="navbar-brand" href="#">
+        <span class="brand-icon">KG</span>
+      </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
               aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -39,10 +46,10 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#impact">Impact</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Expertise</a></li>
           <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
           <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
-          <li class="nav-item"><a class="nav-link" href="#resume">Resume</a></li>
           <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
       </div>
@@ -54,18 +61,48 @@
 
 <!-- Hero Section -->
 <section id="hero">
-  <div class="container">
+  <div class="hero-bg-shapes">
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+    <div class="shape shape-3"></div>
+  </div>
+  <div class="container position-relative">
     <div class="row align-items-center min-vh-100">
-      <div class="col-lg-6 text-center text-lg-left" data-aos="fade-right" data-aos-duration="1000">
+      <div class="col-lg-7 text-center text-lg-left" data-aos="fade-right" data-aos-duration="1000">
+        <p class="hero-greeting">Hello, I'm</p>
         <h1 class="hero-title">Krishna Gutta</h1>
-        <p class="hero-subtitle">Lead Systems Engineer &amp; Workday Integration Consultant</p>
-        <p class="hero-text">Building enterprise-grade Workday solutions — from HCM and Payroll integrations to custom Extend applications.</p>
-        <a href="#contact" class="btn btn-primary btn-lg mr-2">Get in Touch</a>
-        <a href="#experience" class="btn btn-outline-light btn-lg">View Experience</a>
+        <div class="hero-typed-wrap">
+          <span class="hero-typed-prefix">I build </span>
+          <span class="hero-typed" id="typed-text"></span>
+          <span class="typed-cursor">|</span>
+        </div>
+        <p class="hero-text">10+ years transforming enterprise HR ecosystems through Workday — from HCM implementations and payroll integrations to custom Extend applications that serve thousands of employees.</p>
+        <div class="hero-cta">
+          <a href="#contact" class="btn hero-btn-primary">
+            <i class="fas fa-paper-plane mr-2"></i>Let's Connect
+          </a>
+          <a href="#experience" class="btn hero-btn-outline">
+            <i class="fas fa-briefcase mr-2"></i>View My Work
+          </a>
+          <a href="Krishna Chaitanya Gutta_Workday_Consultant.docx" download class="btn hero-btn-ghost">
+            <i class="fas fa-download mr-2"></i>Resume
+          </a>
+        </div>
       </div>
-      <div class="col-lg-6 text-center mt-5 mt-lg-0" data-aos="fade-left" data-aos-duration="1000">
-        <img src="Images/Krishna_Gutta.jpg" alt="Krishna Gutta" class="hero-image">
+      <div class="col-lg-5 text-center mt-5 mt-lg-0" data-aos="fade-left" data-aos-duration="1000">
+        <div class="hero-image-wrap">
+          <img src="Images/Krishna_Gutta.jpg" alt="Krishna Gutta" class="hero-image">
+          <div class="hero-image-ring"></div>
+          <div class="hero-image-ring hero-image-ring-2"></div>
+        </div>
       </div>
+    </div>
+    <div class="scroll-indicator" data-aos="fade-up" data-aos-delay="1200">
+      <a href="#about">
+        <span></span>
+        <span></span>
+        <span></span>
+      </a>
     </div>
   </div>
 </section>
@@ -73,14 +110,80 @@
 <!-- About Section -->
 <section id="about">
   <div class="container">
-    <h2 class="section-heading text-center" data-aos="fade-up">About Me</h2>
+    <div class="row align-items-center">
+      <div class="col-lg-5 mb-4 mb-lg-0" data-aos="fade-right">
+        <div class="about-highlights">
+          <div class="about-highlight-item">
+            <div class="about-highlight-icon"><i class="fas fa-building"></i></div>
+            <div>
+              <h4>Lyft, Gilead, USAA</h4>
+              <p>Enterprise clients served</p>
+            </div>
+          </div>
+          <div class="about-highlight-item">
+            <div class="about-highlight-icon"><i class="fas fa-layer-group"></i></div>
+            <div>
+              <h4>Full-Stack Workday</h4>
+              <p>HCM, Payroll, Benefits, Extend, Studio, PRISM</p>
+            </div>
+          </div>
+          <div class="about-highlight-item">
+            <div class="about-highlight-icon"><i class="fas fa-users-cog"></i></div>
+            <div>
+              <h4>Team Leadership</h4>
+              <p>Led offshore consulting teams end-to-end</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-7" data-aos="fade-left">
+        <h2 class="section-heading">About Me</h2>
+        <div class="heading-underline heading-underline-left"></div>
+        <p class="about-text mt-4">
+          I'm a Lead Systems Engineer who turns complex Workday challenges into elegant, scalable solutions. Over the past decade, I've architected integrations, built custom Extend applications, and delivered PRISM analytics dashboards for some of the most recognized names in tech and healthcare.
+        </p>
+        <p class="about-text">
+          My approach combines deep technical expertise with a strategic understanding of HR business processes. Whether it's building a performance management app from scratch, automating payroll interfaces, or leading a cross-functional team through a major implementation, I bring the same focus: <strong>deliver systems that genuinely make people's work lives better.</strong>
+        </p>
+        <p class="about-text about-personal">When I'm not building integrations, you'll find me playing chess and sharpening my strategic thinking.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Impact Stats Section -->
+<section id="impact">
+  <div class="container">
+    <h2 class="section-heading text-center" data-aos="fade-up">Impact by the Numbers</h2>
     <div class="heading-underline" data-aos="fade-up" data-aos-delay="100"></div>
     <div class="row mt-5">
-      <div class="col-lg-8 mx-auto" data-aos="fade-up" data-aos-delay="200">
-        <p class="about-text">
-          Experienced IT professional with expertise in Workday's Human Capital Management, Recruitment, Payroll, and Benefits modules. Skilled in developing and maintaining integration systems using Studio, PRISM, and Extend applications. Proven ability to deliver cost-effective and high-performance technology solutions. Strategic leader with cross-functional team management skills and strong relationship building abilities.
-        </p>
-        <p class="about-text">In my free time, I enjoy playing chess.</p>
+      <div class="col-lg-3 col-md-6 mb-4" data-aos="zoom-in" data-aos-delay="100">
+        <div class="stat-card">
+          <div class="stat-number" data-target="10">0</div>
+          <div class="stat-suffix">+</div>
+          <p class="stat-label">Years of Workday Experience</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 mb-4" data-aos="zoom-in" data-aos-delay="200">
+        <div class="stat-card">
+          <div class="stat-number" data-target="5">0</div>
+          <div class="stat-suffix"></div>
+          <p class="stat-label">Enterprise Companies</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 mb-4" data-aos="zoom-in" data-aos-delay="300">
+        <div class="stat-card">
+          <div class="stat-number" data-target="50">0</div>
+          <div class="stat-suffix">+</div>
+          <p class="stat-label">Integrations Delivered</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 mb-4" data-aos="zoom-in" data-aos-delay="400">
+        <div class="stat-card">
+          <div class="stat-number" data-target="3">0</div>
+          <div class="stat-suffix"></div>
+          <p class="stat-label">Custom Extend Applications</p>
+        </div>
       </div>
     </div>
   </div>
@@ -91,68 +194,69 @@
   <div class="container">
     <h2 class="section-heading text-center" data-aos="fade-up">Areas of Expertise</h2>
     <div class="heading-underline" data-aos="fade-up" data-aos-delay="100"></div>
+    <p class="section-subtitle text-center" data-aos="fade-up" data-aos-delay="150">Deep specialization across the entire Workday ecosystem</p>
     <div class="row mt-5">
       <div class="col-md-4 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="100">
         <div class="skill-card">
-          <i class="fas fa-users"></i>
-          <h4>Human Resource Management</h4>
-          <p>End-to-end HCM implementations and post-production support</p>
+          <div class="skill-icon-wrap"><i class="fas fa-users"></i></div>
+          <h4>Human Capital Management</h4>
+          <p>End-to-end HCM implementations, business process configuration, and post-production optimization</p>
         </div>
       </div>
       <div class="col-md-4 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="150">
         <div class="skill-card">
-          <i class="fas fa-code"></i>
+          <div class="skill-icon-wrap"><i class="fas fa-code"></i></div>
           <h4>Workday Studio</h4>
-          <p>Custom integrations, web services, and document transformations</p>
+          <p>SOAP/REST integrations, web services, listener services, and document transformations</p>
         </div>
       </div>
       <div class="col-md-4 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="200">
         <div class="skill-card">
-          <i class="fas fa-puzzle-piece"></i>
+          <div class="skill-icon-wrap"><i class="fas fa-puzzle-piece"></i></div>
           <h4>Workday Extend</h4>
-          <p>Custom applications with Fieldsets, task flows, and orchestrations</p>
+          <p>Custom apps with Fieldsets, task flows, orchestrations, and On Change event handling</p>
         </div>
       </div>
       <div class="col-md-4 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="250">
         <div class="skill-card">
-          <i class="fas fa-database"></i>
+          <div class="skill-icon-wrap"><i class="fas fa-chart-line"></i></div>
           <h4>PRISM Analytics</h4>
-          <p>Data sets, dashboards, and advanced compensation reporting</p>
+          <p>Data sets, compensation dashboards, and cross-domain analytical reporting</p>
         </div>
       </div>
       <div class="col-md-4 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="300">
         <div class="skill-card">
-          <i class="fas fa-user-plus"></i>
-          <h4>Recruiting</h4>
-          <p>Greenhouse integration, candidate pipelines, and funnel reporting</p>
+          <div class="skill-icon-wrap"><i class="fas fa-money-check-alt"></i></div>
+          <h4>Payroll &amp; Benefits</h4>
+          <p>ADP interfaces (PECI/PICOF), open enrollment, deduction loads, and garnishments</p>
         </div>
       </div>
       <div class="col-md-4 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="350">
         <div class="skill-card">
-          <i class="fas fa-money-check-alt"></i>
-          <h4>Payroll &amp; Benefits</h4>
-          <p>ADP interfaces, PECI/PICOF, open enrollment, and benefits configuration</p>
+          <div class="skill-icon-wrap"><i class="fas fa-user-plus"></i></div>
+          <h4>Recruiting &amp; Talent</h4>
+          <p>Greenhouse integration, applicant tracking, talent reviews, and funnel reporting</p>
         </div>
       </div>
       <div class="col-md-4 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="400">
         <div class="skill-card">
-          <i class="fas fa-file-alt"></i>
-          <h4>EIB &amp; Document Transformation</h4>
-          <p>Inbound/outbound EIBs, XSLT, CSV, and pipe-delimited formats</p>
+          <div class="skill-icon-wrap"><i class="fas fa-file-export"></i></div>
+          <h4>EIB &amp; Transformations</h4>
+          <p>Inbound/outbound EIBs, XSLT, Cloud Connect, CSV and pipe-delimited formats</p>
         </div>
       </div>
       <div class="col-md-4 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="450">
         <div class="skill-card">
-          <i class="fas fa-shield-alt"></i>
+          <div class="skill-icon-wrap"><i class="fas fa-shield-halved"></i></div>
           <h4>Security Administration</h4>
-          <p>Security groups, domain policies, and role-based access</p>
+          <p>Security groups, domain policies, PGP/SSH key management, and role-based access</p>
         </div>
       </div>
       <div class="col-md-4 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="500">
         <div class="skill-card">
-          <i class="fas fa-chart-bar"></i>
-          <h4>Reporting &amp; Analytics</h4>
-          <p>Advanced, composite, matrix reports, BIRT, and RAAS</p>
+          <div class="skill-icon-wrap"><i class="fas fa-chart-bar"></i></div>
+          <h4>Reporting &amp; BI</h4>
+          <p>Advanced, composite, and matrix reports, BIRT PDFs, and RAAS REST endpoints</p>
         </div>
       </div>
     </div>
@@ -164,122 +268,119 @@
   <div class="container">
     <h2 class="section-heading text-center" data-aos="fade-up">Professional Experience</h2>
     <div class="heading-underline" data-aos="fade-up" data-aos-delay="100"></div>
+    <p class="section-subtitle text-center" data-aos="fade-up" data-aos-delay="150">A decade of building and leading Workday solutions at industry-leading companies</p>
 
     <div class="timeline mt-5">
 
-      <!-- Experience 1: Lyft -->
-      <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
-        <div class="timeline-dot"></div>
+      <!-- Lyft -->
+      <div class="timeline-item timeline-left" data-aos="fade-right">
+        <div class="timeline-dot">
+          <i class="fas fa-car"></i>
+        </div>
         <div class="timeline-content">
-          <div class="timeline-header">
-            <h3>Lyft Inc</h3>
-            <span class="timeline-role">Sr. Workday Systems Engineer</span>
-            <span class="timeline-date">Jan 2020 &ndash; Present</span>
+          <div class="timeline-badge">Current</div>
+          <h3>Lyft Inc</h3>
+          <span class="timeline-role">Sr. Workday Systems Engineer</span>
+          <span class="timeline-date"><i class="far fa-calendar-alt mr-1"></i>Jan 2020 &ndash; Present</span>
+          <div class="timeline-achievements">
+            <div class="achievement"><i class="fas fa-star"></i> Built performance management Extend app serving all of Lyft</div>
+            <div class="achievement"><i class="fas fa-star"></i> Created Prism compensation dashboards with 4-year vesting views</div>
+            <div class="achievement"><i class="fas fa-star"></i> Developed RSU tax election &amp; Return-to-Office self-service apps</div>
           </div>
           <ul class="timeline-details">
-            <li>Managed check-in hub app entirely built on Workday Extend for Lyft's performance management.</li>
-            <li>Developed RSU tax selection application for annual employee self-service enrollment.</li>
-            <li>Developed Return to Office application for vaccine verification uploads and HR approval.</li>
-            <li>Used Fieldsets, tabs, task flows, and On Change functionality for UI-friendly Extend applications.</li>
             <li>Maintained business systems including Workday, Greenhouse, and Docebo.</li>
             <li>Built multiple Studio integrations for Schwab stock vesting, GSuite, and Okta user management.</li>
-            <li>Built Prism Data sets for total employee compensation dashboards (Base Pay, OTP, Bonuses, Stock Vesting).</li>
-            <li>Developed four-year compensation and vesting dashboards for employees.</li>
             <li>Delivered custom advanced, composite, and matrix reports for business and analytics teams.</li>
             <li>Built PECI and PICOF interfaces for ADP third-party payroll system.</li>
           </ul>
         </div>
       </div>
 
-      <!-- Experience 2: Gilead -->
-      <div class="timeline-item" data-aos="fade-up" data-aos-delay="150">
-        <div class="timeline-dot"></div>
+      <!-- Gilead -->
+      <div class="timeline-item timeline-right" data-aos="fade-left">
+        <div class="timeline-dot">
+          <i class="fas fa-flask"></i>
+        </div>
         <div class="timeline-content">
-          <div class="timeline-header">
-            <h3>Gilead Health Sciences</h3>
-            <span class="timeline-role">Sr. Workday Techno-Functional Consultant</span>
-            <span class="timeline-date">Aug 2017 &ndash; Jan 2020</span>
+          <h3>Gilead Health Sciences</h3>
+          <span class="timeline-role">Sr. Workday Techno-Functional Consultant</span>
+          <span class="timeline-date"><i class="far fa-calendar-alt mr-1"></i>Aug 2017 &ndash; Jan 2020</span>
+          <div class="timeline-achievements">
+            <div class="achievement"><i class="fas fa-star"></i> Ensured integration stability through a major corporate acquisition</div>
+            <div class="achievement"><i class="fas fa-star"></i> Served as Security Administrator for all Workday domains</div>
           </div>
           <ul class="timeline-details">
             <li>Supported Workday HCM system, delivering all post-implementation enhancements and projects.</li>
             <li>Built Studio integrations for Photo load, ADP Payforce, Payroll interface, and Field Glass contractor load.</li>
             <li>Developed PDF compensation and Merit statements using BIRT reporting tool.</li>
-            <li>Delivered custom advanced, composite, and matrix reports for business requirements.</li>
-            <li>Supported integrations during a major acquisition after go-live.</li>
-            <li>Served as security administrator, managing security groups and custom security policy domains.</li>
             <li>Created recruiting dashboards, candidate-to-hire reports, and funnel reporting.</li>
           </ul>
         </div>
       </div>
 
-      <!-- Experience 3: USAA -->
-      <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
-        <div class="timeline-dot"></div>
+      <!-- USAA -->
+      <div class="timeline-item timeline-left" data-aos="fade-right">
+        <div class="timeline-dot">
+          <i class="fas fa-shield-alt"></i>
+        </div>
         <div class="timeline-content">
-          <div class="timeline-header">
-            <h3>United Services Automobile Association (USAA)</h3>
-            <span class="timeline-role">Sr. Workday Consultant</span>
-            <span class="timeline-date">Nov 2015 &ndash; Aug 2017</span>
+          <h3>USAA</h3>
+          <span class="timeline-role">Sr. Workday Consultant</span>
+          <span class="timeline-date"><i class="far fa-calendar-alt mr-1"></i>Nov 2015 &ndash; Aug 2017</span>
+          <div class="timeline-achievements">
+            <div class="achievement"><i class="fas fa-star"></i> Led full HCM + Payroll end-to-end implementation</div>
+            <div class="achievement"><i class="fas fa-star"></i> Managed offshore consulting team through entire project lifecycle</div>
           </div>
           <ul class="timeline-details">
-            <li>Designed, built, and delivered all integrations during HCM and Payroll end-to-end implementation.</li>
             <li>Developed real-time integration to end contingent worker contracts using Workday Web Services.</li>
             <li>Built Studio integrations to load payroll deductions, earnings, and absence inputs.</li>
             <li>Worked with ADP Taxes, Garnishments, and GL integrations.</li>
-            <li>Managed vendor communications and cloud-to-cloud connectivity requirements.</li>
-            <li>Created and maintained PGP/SSH keys and tenant configurations.</li>
             <li>Created technical design documents, run books, and transition documents.</li>
             <li>Used listener service in Studio to receive HTTP POST calls with JSON bodies.</li>
-            <li>Created reports with Workday Report Writer and integrations with Cloud Connect and EIB.</li>
-            <li>Led a team of certified Workday consultants (offshore) for the full project scope.</li>
           </ul>
         </div>
       </div>
 
-      <!-- Experience 4: NCI -->
-      <div class="timeline-item" data-aos="fade-up" data-aos-delay="250">
-        <div class="timeline-dot"></div>
+      <!-- NCI -->
+      <div class="timeline-item timeline-right" data-aos="fade-left">
+        <div class="timeline-dot">
+          <i class="fas fa-heartbeat"></i>
+        </div>
         <div class="timeline-content">
-          <div class="timeline-header">
-            <h3>NCI Inc</h3>
-            <span class="timeline-role">Workday Technical Consultant</span>
-            <span class="timeline-date">Jun 2015 &ndash; Dec 2015</span>
+          <h3>NCI Inc</h3>
+          <span class="timeline-role">Workday Technical Consultant</span>
+          <span class="timeline-date"><i class="far fa-calendar-alt mr-1"></i>Jun 2015 &ndash; Dec 2015</span>
+          <div class="timeline-achievements">
+            <div class="achievement"><i class="fas fa-star"></i> Benefits SME &mdash; owned the entire Open Enrollment process</div>
+            <div class="achievement"><i class="fas fa-star"></i> Designed end-to-end integrations with 3 insurance carriers</div>
           </div>
           <ul class="timeline-details">
-            <li>Subject matter expert on all Workday/Benefit-related issues; administered all benefit programs.</li>
-            <li>Ran annual Open Enrollment process and generated pre/post go-live reports.</li>
             <li>Created and tested new benefit plans, rates, eligibility rules, and event configurations.</li>
-            <li>Set up benefit modules including evidence of insurability and beneficiaries.</li>
             <li>Configured talent reviews for management to assess employee performance by competencies.</li>
-            <li>Customized talent cards with BIRT reports meeting business requirements.</li>
             <li>Developed inbound EIBs for new hires, compensation, change job, benefits, and payroll input data.</li>
-            <li>Designed end-to-end integrations with Liberty Mutual, Prudential, and United Health Care.</li>
             <li>Developed XSLT transformations for CSV and pipe-delimited output formats.</li>
-            <li>Built data validation scenarios for integration testing during the WD25 update.</li>
           </ul>
         </div>
       </div>
 
-      <!-- Experience 5: Dropbox -->
-      <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
-        <div class="timeline-dot"></div>
+      <!-- Dropbox -->
+      <div class="timeline-item timeline-left" data-aos="fade-right">
+        <div class="timeline-dot">
+          <i class="fab fa-dropbox"></i>
+        </div>
         <div class="timeline-content">
-          <div class="timeline-header">
-            <h3>Dropbox</h3>
-            <span class="timeline-role">Integration Developer</span>
-            <span class="timeline-date">Nov 2014 &ndash; May 2015</span>
+          <h3>Dropbox</h3>
+          <span class="timeline-role">Integration Developer</span>
+          <span class="timeline-date"><i class="far fa-calendar-alt mr-1"></i>Nov 2014 &ndash; May 2015</span>
+          <div class="timeline-achievements">
+            <div class="achievement"><i class="fas fa-star"></i> Automated New Hire integration, eliminating manual data entry</div>
+            <div class="achievement"><i class="fas fa-star"></i> Built Greenhouse-to-Workday bidirectional integration</div>
           </div>
           <ul class="timeline-details">
-            <li>Developed Studio integrations for Greenhouse applicant tracking system and Workday.</li>
             <li>Configured listener service for secure HTTP calls with token-based authentication.</li>
             <li>Developed integrations using SOAP web service calls (Hire, End Contingent Worker, Change Job, Put Applicant).</li>
-            <li>Created advanced reports as RAAS REST calls for data extraction from Workday to Studio.</li>
-            <li>Automated New Hire integration to trigger on applicant tracking system hire events.</li>
-            <li>Worked with XML, XPath, WSDL, XSD, and XSL transformations.</li>
+            <li>Created advanced reports as RAAS REST calls for data extraction.</li>
             <li>Configured business process definitions and pre-employee task flows.</li>
-            <li>Performed post-production integration testing during tenant updates.</li>
-            <li>Developed test cases and scenarios for UAT and SAT on new integrations.</li>
-            <li>Managed role-based security groups and domain-based security policies.</li>
           </ul>
         </div>
       </div>
@@ -299,7 +400,7 @@
           <div class="education-icon"><i class="fas fa-graduation-cap"></i></div>
           <h4>Master of Science</h4>
           <p class="education-field">Electrical Engineering</p>
-          <p class="education-school">Texas A&amp;M University &mdash; Kingsville, TX</p>
+          <p class="education-school"><i class="fas fa-university mr-1"></i>Texas A&amp;M University &mdash; Kingsville, TX</p>
           <p class="education-year">2014</p>
         </div>
       </div>
@@ -308,7 +409,7 @@
           <div class="education-icon"><i class="fas fa-graduation-cap"></i></div>
           <h4>Bachelor of Engineering</h4>
           <p class="education-field">Electronics &amp; Communication Engineering</p>
-          <p class="education-school">KL University &mdash; Guntur, AP, India</p>
+          <p class="education-school"><i class="fas fa-university mr-1"></i>KL University &mdash; Guntur, AP, India</p>
           <p class="education-year">2013</p>
         </div>
       </div>
@@ -316,21 +417,14 @@
   </div>
 </section>
 
-<!-- Resume Section -->
-<section id="resume">
-  <div class="container">
-    <h2 class="section-heading text-center" data-aos="fade-up">Resume</h2>
-    <div class="heading-underline" data-aos="fade-up" data-aos-delay="100"></div>
-    <p class="text-center mt-4 mb-4" data-aos="fade-up" data-aos-delay="200">Download my resume in one of the following formats:</p>
-    <div class="d-flex justify-content-center flex-wrap" data-aos="fade-up" data-aos-delay="300">
-      <a href="Krishna Chaitanya Gutta_Workday_Consultant.docx" download class="btn btn-primary btn-lg m-2">
-        <i class="fas fa-file-download mr-2"></i>Default
-      </a>
-      <a href="Krishna_Gutta - Workday Systems Engineer.docx" download class="btn btn-outline-primary btn-lg m-2">
-        <i class="fas fa-file-download mr-2"></i>Two Page
-      </a>
-      <a href="Krishna Chaitanya Gutta_Workday_Consultant.docx" download class="btn btn-outline-primary btn-lg m-2">
-        <i class="fas fa-file-download mr-2"></i>Detailed
+<!-- CTA Section -->
+<section id="cta">
+  <div class="container text-center">
+    <h2 data-aos="fade-up">Ready to Transform Your Workday Ecosystem?</h2>
+    <p data-aos="fade-up" data-aos-delay="100">Whether you need a complex Studio integration, a custom Extend app, or strategic guidance on your Workday roadmap &mdash; let's talk.</p>
+    <div data-aos="fade-up" data-aos-delay="200">
+      <a href="mailto:krishnac.gutta@gmail.com" class="btn cta-btn">
+        <i class="fas fa-envelope mr-2"></i>krishnac.gutta@gmail.com
       </a>
     </div>
   </div>
@@ -339,36 +433,45 @@
 <!-- Contact Section -->
 <section id="contact">
   <div class="container">
-    <h2 class="section-heading text-center" data-aos="fade-up">Contact Me</h2>
+    <h2 class="section-heading text-center" data-aos="fade-up">Get in Touch</h2>
     <div class="heading-underline" data-aos="fade-up" data-aos-delay="100"></div>
+    <p class="section-subtitle text-center" data-aos="fade-up" data-aos-delay="150" style="color: rgba(255,255,255,0.7);">I'm always open to discussing new opportunities and Workday challenges</p>
     <div class="row mt-5 justify-content-center">
       <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
-        <div class="contact-card">
-          <i class="fas fa-envelope"></i>
-          <h4>Email</h4>
-          <a href="mailto:krishnac.gutta@gmail.com">krishnac.gutta@gmail.com</a>
-        </div>
+        <a href="mailto:krishnac.gutta@gmail.com" class="contact-card-link">
+          <div class="contact-card">
+            <i class="fas fa-envelope"></i>
+            <h4>Email</h4>
+            <span>krishnac.gutta@gmail.com</span>
+          </div>
+        </a>
       </div>
       <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="250">
-        <div class="contact-card">
-          <i class="fas fa-phone-alt"></i>
-          <h4>Phone</h4>
-          <a href="tel:+17169579206">+1 (716) 957-9206</a>
-        </div>
+        <a href="tel:+17169579206" class="contact-card-link">
+          <div class="contact-card">
+            <i class="fas fa-phone-alt"></i>
+            <h4>Phone</h4>
+            <span>+1 (716) 957-9206</span>
+          </div>
+        </a>
       </div>
       <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
-        <div class="contact-card">
-          <i class="fab fa-linkedin"></i>
-          <h4>LinkedIn</h4>
-          <a href="https://www.linkedin.com/in/krishna-gutta/" target="_blank" rel="noopener noreferrer">krishna-gutta</a>
-        </div>
+        <a href="https://www.linkedin.com/in/krishna-gutta/" target="_blank" rel="noopener noreferrer" class="contact-card-link">
+          <div class="contact-card">
+            <i class="fab fa-linkedin"></i>
+            <h4>LinkedIn</h4>
+            <span>krishna-gutta</span>
+          </div>
+        </a>
       </div>
       <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="350">
-        <div class="contact-card">
-          <i class="fab fa-github"></i>
-          <h4>GitHub</h4>
-          <a href="https://github.com/gkchaitanya1503" target="_blank" rel="noopener noreferrer">gkchaitanya1503</a>
-        </div>
+        <a href="https://github.com/gkchaitanya1503" target="_blank" rel="noopener noreferrer" class="contact-card-link">
+          <div class="contact-card">
+            <i class="fab fa-github"></i>
+            <h4>GitHub</h4>
+            <span>gkchaitanya1503</span>
+          </div>
+        </a>
       </div>
     </div>
   </div>
@@ -378,59 +481,71 @@
 
 <!-- Footer -->
 <footer>
-  <div class="container text-center">
-    <div class="footer-social mb-3">
-      <a href="https://www.linkedin.com/in/krishna-gutta/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-      <a href="https://github.com/gkchaitanya1503" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
-      <a href="mailto:krishnac.gutta@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-4 text-center text-md-left mb-3 mb-md-0">
+        <span class="footer-brand">KG</span>
+      </div>
+      <div class="col-md-4 text-center mb-3 mb-md-0">
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/in/krishna-gutta/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://github.com/gkchaitanya1503" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="mailto:krishnac.gutta@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+      <div class="col-md-4 text-center text-md-right">
+        <p>&copy; <span id="year"></span> Krishna Gutta</p>
+      </div>
     </div>
-    <p>&copy; <span id="year"></span> Krishna Gutta. All rights reserved.</p>
   </div>
 </footer>
 
-<!-- jQuery 3.6 -->
+<!-- Back to Top -->
+<a href="#hero" id="back-to-top" aria-label="Back to top"><i class="fas fa-chevron-up"></i></a>
+
+<!-- Scripts -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<!-- Popper.js -->
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-<!-- Bootstrap 4.5 JS -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<!-- AOS JS -->
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
 
 <script>
   // Initialize AOS
-  AOS.init({ once: true });
+  AOS.init({ once: true, duration: 700 });
 
   // Dynamic copyright year
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // Smooth scrolling for nav links
+  // Smooth scrolling
   $(document).ready(function() {
     $('a[href^="#"]').on('click', function(e) {
       var target = $(this.getAttribute('href'));
       if (target.length) {
         e.preventDefault();
         $('html, body').animate({ scrollTop: target.offset().top - 70 }, 800);
-        // Close mobile menu on click
         $('.navbar-collapse').collapse('hide');
       }
     });
   });
 
-  // Navbar background change on scroll
+  // Navbar & back-to-top on scroll
+  var navbar = document.querySelector('.navbar');
+  var backToTop = document.getElementById('back-to-top');
   window.addEventListener('scroll', function() {
-    var navbar = document.querySelector('.navbar');
     if (window.scrollY > 50) {
       navbar.classList.add('navbar-scrolled');
     } else {
       navbar.classList.remove('navbar-scrolled');
     }
-  });
+    if (window.scrollY > 500) {
+      backToTop.classList.add('visible');
+    } else {
+      backToTop.classList.remove('visible');
+    }
 
-  // Active nav link highlighting
-  window.addEventListener('scroll', function() {
+    // Active nav highlighting
     var sections = document.querySelectorAll('section[id]');
-    var scrollPos = window.scrollY + 100;
+    var scrollPos = window.scrollY + 120;
     sections.forEach(function(section) {
       var top = section.offsetTop;
       var height = section.offsetHeight;
@@ -445,6 +560,71 @@
       }
     });
   });
+
+  // Typing animation
+  var phrases = [
+    'Workday integrations.',
+    'custom Extend applications.',
+    'PRISM analytics dashboards.',
+    'payroll & benefits systems.',
+    'enterprise HR solutions.'
+  ];
+  var phraseIndex = 0, charIndex = 0, isDeleting = false;
+  var typedEl = document.getElementById('typed-text');
+
+  function typeLoop() {
+    var current = phrases[phraseIndex];
+    if (isDeleting) {
+      typedEl.textContent = current.substring(0, charIndex - 1);
+      charIndex--;
+    } else {
+      typedEl.textContent = current.substring(0, charIndex + 1);
+      charIndex++;
+    }
+
+    var speed = isDeleting ? 30 : 60;
+
+    if (!isDeleting && charIndex === current.length) {
+      speed = 2000;
+      isDeleting = true;
+    } else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      phraseIndex = (phraseIndex + 1) % phrases.length;
+      speed = 400;
+    }
+
+    setTimeout(typeLoop, speed);
+  }
+  typeLoop();
+
+  // Animated counters
+  var countersAnimated = false;
+  function animateCounters() {
+    if (countersAnimated) return;
+    var statSection = document.getElementById('impact');
+    if (!statSection) return;
+    var rect = statSection.getBoundingClientRect();
+    if (rect.top < window.innerHeight * 0.8) {
+      countersAnimated = true;
+      document.querySelectorAll('.stat-number').forEach(function(counter) {
+        var target = +counter.getAttribute('data-target');
+        var duration = 1500;
+        var start = 0;
+        var startTime = null;
+        function step(timestamp) {
+          if (!startTime) startTime = timestamp;
+          var progress = Math.min((timestamp - startTime) / duration, 1);
+          var eased = 1 - Math.pow(1 - progress, 3);
+          counter.textContent = Math.floor(eased * target);
+          if (progress < 1) requestAnimationFrame(step);
+          else counter.textContent = target;
+        }
+        requestAnimationFrame(step);
+      });
+    }
+  }
+  window.addEventListener('scroll', animateCounters);
+  animateCounters();
 </script>
 
 </body>
