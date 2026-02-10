@@ -7,6 +7,34 @@
     <meta name="description" content="Krishna Gutta — 10+ years transforming enterprise HR through Workday integrations, Extend applications, and PRISM analytics at Lyft, Gilead, USAA, and more.">
     <meta name="keywords" content="Workday Integration Consultant, HCM, Payroll, PRISM, Extend, Studio, Krishna Gutta">
 
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Krishna Gutta — Workday Solutions Architect">
+    <meta property="og:description" content="10+ years transforming enterprise HR through Workday integrations, Extend applications, and PRISM analytics at Lyft, Gilead, USAA, and more.">
+    <meta property="og:image" content="https://gkchaitanya1503.github.io/myportfolio/Images/Krishna_Gutta.jpg">
+    <meta property="og:url" content="https://gkchaitanya1503.github.io/myportfolio/">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Krishna Gutta",
+      "jobTitle": "Lead Systems Engineer",
+      "url": "https://gkchaitanya1503.github.io/myportfolio/",
+      "sameAs": [
+        "https://www.linkedin.com/in/krishna-gutta/",
+        "https://github.com/gkchaitanya1503"
+      ],
+      "alumniOf": [
+        {"@type": "CollegeOrUniversity", "name": "Texas A&M University"},
+        {"@type": "CollegeOrUniversity", "name": "KL University"}
+      ],
+      "knowsAbout": ["Workday", "HCM", "Payroll", "PRISM", "Workday Extend", "Workday Studio"]
+    }
+    </script>
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,6 +60,14 @@
 </head>
 <body>
 
+<!-- Preloader -->
+<div id="preloader">
+  <div class="preloader-inner">
+    <div class="preloader-ring"></div>
+    <span class="preloader-text">KG</span>
+  </div>
+</div>
+
 <!-- Navigation -->
 <header>
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
@@ -51,6 +87,11 @@
           <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
           <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
           <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item ml-2">
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+              <i class="fas fa-moon" id="theme-icon"></i>
+            </button>
+          </li>
         </ul>
       </div>
     </div>
@@ -61,6 +102,7 @@
 
 <!-- Hero Section -->
 <section id="hero">
+  <canvas id="hero-particles"></canvas>
   <div class="hero-bg-shapes">
     <div class="shape shape-1"></div>
     <div class="shape shape-2"></div>
@@ -69,7 +111,7 @@
   <div class="container position-relative">
     <div class="row align-items-center min-vh-100">
       <div class="col-lg-7 text-center text-lg-left" data-aos="fade-right" data-aos-duration="1000">
-        <p class="hero-greeting">Hello, I'm</p>
+        <p class="hero-greeting" id="hero-greeting">Hello, I'm</p>
         <h1 class="hero-title">Krishna Gutta</h1>
         <div class="hero-typed-wrap">
           <span class="hero-typed-prefix">I build </span>
@@ -503,6 +545,41 @@
 <!-- Back to Top -->
 <a href="#hero" id="back-to-top" aria-label="Back to top"><i class="fas fa-chevron-up"></i></a>
 
+<!-- AI Chat Widget -->
+<div id="chat-widget">
+  <button id="chat-toggle" aria-label="Ask me anything">
+    <i class="fas fa-robot" id="chat-toggle-icon"></i>
+  </button>
+  <div id="chat-window">
+    <div class="chat-header">
+      <div class="chat-header-info">
+        <div class="chat-avatar"><i class="fas fa-robot"></i></div>
+        <div>
+          <h4>Ask Krishna's AI</h4>
+          <span class="chat-status"><span class="status-dot"></span> Online</span>
+        </div>
+      </div>
+      <button id="chat-close" aria-label="Close chat"><i class="fas fa-times"></i></button>
+    </div>
+    <div id="chat-messages">
+      <div class="chat-msg bot">
+        <div class="chat-bubble">Hi! I'm Krishna's AI assistant. Ask me anything about his experience, skills, or background. Try clicking a suggestion below!</div>
+      </div>
+    </div>
+    <div id="chat-suggestions">
+      <button class="chat-suggestion" data-q="What is your Workday experience?">Workday experience</button>
+      <button class="chat-suggestion" data-q="What companies have you worked at?">Companies</button>
+      <button class="chat-suggestion" data-q="What are your skills?">Skills</button>
+      <button class="chat-suggestion" data-q="Tell me about your education">Education</button>
+      <button class="chat-suggestion" data-q="How can I contact you?">Contact info</button>
+    </div>
+    <div class="chat-input-wrap">
+      <input type="text" id="chat-input" placeholder="Type a question..." autocomplete="off">
+      <button id="chat-send" aria-label="Send"><i class="fas fa-paper-plane"></i></button>
+    </div>
+  </div>
+</div>
+
 <!-- Scripts -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
@@ -510,13 +587,27 @@
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
 
 <script>
-  // Initialize AOS
+  // ==================== PRELOADER ====================
+  window.addEventListener('load', function() {
+    var preloader = document.getElementById('preloader');
+    preloader.classList.add('loaded');
+    setTimeout(function() { preloader.style.display = 'none'; }, 600);
+  });
+
+  // ==================== AOS ====================
   AOS.init({ once: true, duration: 700 });
 
-  // Dynamic copyright year
+  // ==================== COPYRIGHT YEAR ====================
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // Smooth scrolling
+  // ==================== TIME-OF-DAY GREETING ====================
+  (function() {
+    var h = new Date().getHours();
+    var greeting = h < 12 ? 'Good morning' : h < 17 ? 'Good afternoon' : 'Good evening';
+    document.getElementById('hero-greeting').textContent = greeting + ", I'm";
+  })();
+
+  // ==================== SMOOTH SCROLLING ====================
   $(document).ready(function() {
     $('a[href^="#"]').on('click', function(e) {
       var target = $(this.getAttribute('href'));
@@ -528,103 +619,229 @@
     });
   });
 
-  // Navbar & back-to-top on scroll
+  // ==================== SCROLL EVENTS ====================
   var navbar = document.querySelector('.navbar');
   var backToTop = document.getElementById('back-to-top');
   window.addEventListener('scroll', function() {
-    if (window.scrollY > 50) {
-      navbar.classList.add('navbar-scrolled');
-    } else {
-      navbar.classList.remove('navbar-scrolled');
-    }
-    if (window.scrollY > 500) {
-      backToTop.classList.add('visible');
-    } else {
-      backToTop.classList.remove('visible');
-    }
-
-    // Active nav highlighting
-    var sections = document.querySelectorAll('section[id]');
-    var scrollPos = window.scrollY + 120;
-    sections.forEach(function(section) {
-      var top = section.offsetTop;
-      var height = section.offsetHeight;
-      var id = section.getAttribute('id');
-      var link = document.querySelector('.nav-link[href="#' + id + '"]');
+    navbar.classList.toggle('navbar-scrolled', window.scrollY > 50);
+    backToTop.classList.toggle('visible', window.scrollY > 500);
+    // Active nav
+    document.querySelectorAll('section[id]').forEach(function(s) {
+      var link = document.querySelector('.nav-link[href="#' + s.id + '"]');
       if (link) {
-        if (scrollPos >= top && scrollPos < top + height) {
-          link.classList.add('active');
-        } else {
-          link.classList.remove('active');
-        }
+        var pos = window.scrollY + 120;
+        link.classList.toggle('active', pos >= s.offsetTop && pos < s.offsetTop + s.offsetHeight);
       }
     });
   });
 
-  // Typing animation
-  var phrases = [
-    'Workday integrations.',
-    'custom Extend applications.',
-    'PRISM analytics dashboards.',
-    'payroll & benefits systems.',
-    'enterprise HR solutions.'
-  ];
-  var phraseIndex = 0, charIndex = 0, isDeleting = false;
-  var typedEl = document.getElementById('typed-text');
+  // ==================== TYPING ANIMATION ====================
+  var phrases = ['Workday integrations.','custom Extend applications.','PRISM analytics dashboards.','payroll & benefits systems.','enterprise HR solutions.'];
+  var pi = 0, ci = 0, del = false, typedEl = document.getElementById('typed-text');
+  (function typeLoop() {
+    var cur = phrases[pi];
+    typedEl.textContent = cur.substring(0, del ? --ci : ++ci);
+    var sp = del ? 30 : 60;
+    if (!del && ci === cur.length) { sp = 2000; del = true; }
+    else if (del && ci === 0) { del = false; pi = (pi + 1) % phrases.length; sp = 400; }
+    setTimeout(typeLoop, sp);
+  })();
 
-  function typeLoop() {
-    var current = phrases[phraseIndex];
-    if (isDeleting) {
-      typedEl.textContent = current.substring(0, charIndex - 1);
-      charIndex--;
-    } else {
-      typedEl.textContent = current.substring(0, charIndex + 1);
-      charIndex++;
-    }
-
-    var speed = isDeleting ? 30 : 60;
-
-    if (!isDeleting && charIndex === current.length) {
-      speed = 2000;
-      isDeleting = true;
-    } else if (isDeleting && charIndex === 0) {
-      isDeleting = false;
-      phraseIndex = (phraseIndex + 1) % phrases.length;
-      speed = 400;
-    }
-
-    setTimeout(typeLoop, speed);
-  }
-  typeLoop();
-
-  // Animated counters
-  var countersAnimated = false;
+  // ==================== COUNTERS ====================
+  var counted = false;
   function animateCounters() {
-    if (countersAnimated) return;
-    var statSection = document.getElementById('impact');
-    if (!statSection) return;
-    var rect = statSection.getBoundingClientRect();
-    if (rect.top < window.innerHeight * 0.8) {
-      countersAnimated = true;
-      document.querySelectorAll('.stat-number').forEach(function(counter) {
-        var target = +counter.getAttribute('data-target');
-        var duration = 1500;
-        var start = 0;
-        var startTime = null;
-        function step(timestamp) {
-          if (!startTime) startTime = timestamp;
-          var progress = Math.min((timestamp - startTime) / duration, 1);
-          var eased = 1 - Math.pow(1 - progress, 3);
-          counter.textContent = Math.floor(eased * target);
-          if (progress < 1) requestAnimationFrame(step);
-          else counter.textContent = target;
-        }
-        requestAnimationFrame(step);
+    if (counted) return;
+    var el = document.getElementById('impact');
+    if (el && el.getBoundingClientRect().top < window.innerHeight * 0.8) {
+      counted = true;
+      document.querySelectorAll('.stat-number').forEach(function(c) {
+        var t = +c.dataset.target, st = null;
+        (function step(ts) {
+          if (!st) st = ts;
+          var p = Math.min((ts - st) / 1500, 1);
+          c.textContent = Math.floor((1 - Math.pow(1 - p, 3)) * t);
+          if (p < 1) requestAnimationFrame(step); else c.textContent = t;
+        })(performance.now());
       });
     }
   }
   window.addEventListener('scroll', animateCounters);
   animateCounters();
+
+  // ==================== DARK MODE ====================
+  (function() {
+    var toggle = document.getElementById('theme-toggle');
+    var icon = document.getElementById('theme-icon');
+    var saved = localStorage.getItem('theme');
+    if (saved === 'dark') document.body.classList.add('dark-mode');
+    updateIcon();
+    toggle.addEventListener('click', function() {
+      document.body.classList.toggle('dark-mode');
+      localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+      updateIcon();
+    });
+    function updateIcon() {
+      var dark = document.body.classList.contains('dark-mode');
+      icon.className = dark ? 'fas fa-sun' : 'fas fa-moon';
+    }
+  })();
+
+  // ==================== PARTICLE CANVAS ====================
+  (function() {
+    var canvas = document.getElementById('hero-particles');
+    var ctx = canvas.getContext('2d');
+    var particles = [];
+    var count = 60;
+    function resize() {
+      canvas.width = canvas.parentElement.offsetWidth;
+      canvas.height = canvas.parentElement.offsetHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+    for (var i = 0; i < count; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 2 + 0.5,
+        dx: (Math.random() - 0.5) * 0.4,
+        dy: (Math.random() - 0.5) * 0.4,
+        o: Math.random() * 0.4 + 0.1
+      });
+    }
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(function(p) {
+        p.x += p.dx; p.y += p.dy;
+        if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(255,255,255,' + p.o + ')';
+        ctx.fill();
+      });
+      // Draw connections
+      for (var i = 0; i < particles.length; i++) {
+        for (var j = i + 1; j < particles.length; j++) {
+          var dx = particles[i].x - particles[j].x;
+          var dy = particles[i].y - particles[j].y;
+          var dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 120) {
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = 'rgba(255,255,255,' + (0.06 * (1 - dist / 120)) + ')';
+            ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(draw);
+    }
+    draw();
+  })();
+
+  // ==================== AI CHATBOT ====================
+  (function() {
+    var chatToggle = document.getElementById('chat-toggle');
+    var chatWindow = document.getElementById('chat-window');
+    var chatClose = document.getElementById('chat-close');
+    var chatInput = document.getElementById('chat-input');
+    var chatSend = document.getElementById('chat-send');
+    var chatMessages = document.getElementById('chat-messages');
+    var toggleIcon = document.getElementById('chat-toggle-icon');
+    var open = false;
+
+    chatToggle.addEventListener('click', function() {
+      open = !open;
+      chatWindow.classList.toggle('open', open);
+      chatToggle.classList.toggle('active', open);
+      toggleIcon.className = open ? 'fas fa-times' : 'fas fa-robot';
+      if (open) chatInput.focus();
+    });
+    chatClose.addEventListener('click', function() {
+      open = false;
+      chatWindow.classList.remove('open');
+      chatToggle.classList.remove('active');
+      toggleIcon.className = 'fas fa-robot';
+    });
+
+    document.querySelectorAll('.chat-suggestion').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var q = btn.getAttribute('data-q');
+        addMsg('user', q);
+        respond(q);
+      });
+    });
+
+    chatSend.addEventListener('click', send);
+    chatInput.addEventListener('keypress', function(e) { if (e.key === 'Enter') send(); });
+
+    function send() {
+      var q = chatInput.value.trim();
+      if (!q) return;
+      chatInput.value = '';
+      addMsg('user', q);
+      respond(q);
+    }
+
+    function addMsg(type, text) {
+      var d = document.createElement('div');
+      d.className = 'chat-msg ' + type;
+      d.innerHTML = '<div class="chat-bubble">' + escapeHtml(text) + '</div>';
+      chatMessages.appendChild(d);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function addBotMsg(text) {
+      var d = document.createElement('div');
+      d.className = 'chat-msg bot';
+      d.innerHTML = '<div class="chat-bubble">' + text + '</div>';
+      chatMessages.appendChild(d);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function escapeHtml(t) {
+      var d = document.createElement('div');
+      d.textContent = t;
+      return d.innerHTML;
+    }
+
+    function respond(q) {
+      var low = q.toLowerCase();
+      setTimeout(function() {
+        if (match(low, ['experience','work','career','year','how long'])) {
+          addBotMsg("Krishna has <strong>10+ years</strong> of Workday experience across 5 enterprise companies: <strong>Lyft, Gilead Health Sciences, USAA, NCI Inc,</strong> and <strong>Dropbox</strong>. He's currently a Sr. Workday Systems Engineer at Lyft (since Jan 2020).");
+        } else if (match(low, ['company','companies','where','employer','worked at','lyft','gilead','usaa','dropbox','nci'])) {
+          addBotMsg("<strong>Companies:</strong><br>&#8226; <strong>Lyft</strong> — Sr. Systems Engineer (2020–Present)<br>&#8226; <strong>Gilead</strong> — Sr. Techno-Functional Consultant (2017–2020)<br>&#8226; <strong>USAA</strong> — Sr. Consultant (2015–2017)<br>&#8226; <strong>NCI Inc</strong> — Technical Consultant (2015)<br>&#8226; <strong>Dropbox</strong> — Integration Developer (2014–2015)");
+        } else if (match(low, ['skill','expert','specializ','know','good at','what can','capable'])) {
+          addBotMsg("Krishna's core expertise:<br>&#8226; <strong>Workday Studio</strong> — SOAP/REST integrations<br>&#8226; <strong>Workday Extend</strong> — Custom applications<br>&#8226; <strong>PRISM Analytics</strong> — Dashboards & datasets<br>&#8226; <strong>Payroll & Benefits</strong> — ADP, PECI/PICOF<br>&#8226; <strong>HCM</strong> — End-to-end implementations<br>&#8226; <strong>Security Admin</strong> — Groups & policies<br>&#8226; <strong>Reporting</strong> — Advanced, composite, BIRT, RAAS");
+        } else if (match(low, ['education','study','degree','university','college','school'])) {
+          addBotMsg("<strong>Education:</strong><br>&#8226; <strong>MS in Electrical Engineering</strong> — Texas A&M University, Kingsville, TX (2014)<br>&#8226; <strong>BE in Electronics & Communication</strong> — KL University, Guntur, India (2013)");
+        } else if (match(low, ['contact','email','phone','reach','linkedin','github','hire'])) {
+          addBotMsg("You can reach Krishna at:<br>&#8226; Email: <a href='mailto:krishnac.gutta@gmail.com'>krishnac.gutta@gmail.com</a><br>&#8226; Phone: <a href='tel:+17169579206'>+1 (716) 957-9206</a><br>&#8226; LinkedIn: <a href='https://www.linkedin.com/in/krishna-gutta/' target='_blank'>krishna-gutta</a><br>&#8226; GitHub: <a href='https://github.com/gkchaitanya1503' target='_blank'>gkchaitanya1503</a>");
+        } else if (match(low, ['extend','app','application','custom app'])) {
+          addBotMsg("At <strong>Lyft</strong>, Krishna built <strong>3 custom Extend applications</strong>:<br>&#8226; <strong>Check-in Hub</strong> — Performance management for all employees<br>&#8226; <strong>RSU Tax Election</strong> — Annual self-service stock tax selection<br>&#8226; <strong>Return to Office</strong> — Vaccine verification and HR approval<br><br>He uses Fieldsets, task flows, orchestrations, and On Change events.");
+        } else if (match(low, ['prism','dashboard','analytics','report'])) {
+          addBotMsg("Krishna built <strong>Prism Data sets</strong> at Lyft for total compensation dashboards covering Base Pay, OTP, Bonuses, and Stock Vesting. He also delivers advanced, composite, and matrix reports using BIRT and RAAS across multiple companies.");
+        } else if (match(low, ['integration','studio','soap','rest'])) {
+          addBotMsg("Krishna has delivered <strong>50+ integrations</strong> using Workday Studio, including:<br>&#8226; Schwab stock vesting, GSuite, Okta (Lyft)<br>&#8226; ADP Payforce, Field Glass, Photo load (Gilead)<br>&#8226; Payroll deductions, absence inputs (USAA)<br>&#8226; Greenhouse ATS bidirectional sync (Dropbox)<br>&#8226; Liberty Mutual, Prudential, UHC (NCI)");
+        } else if (match(low, ['hello','hi','hey','greet'])) {
+          addBotMsg("Hey there! I'm here to tell you about Krishna's Workday expertise. What would you like to know?");
+        } else if (match(low, ['chess','hobby','free time','fun'])) {
+          addBotMsg("Outside of work, Krishna enjoys playing <strong>chess</strong> — it keeps his strategic thinking sharp!");
+        } else if (match(low, ['resume','cv','download'])) {
+          addBotMsg("You can download Krishna's resume directly: <a href='Krishna Chaitanya Gutta_Workday_Consultant.docx' download>Download Resume</a>");
+        } else if (match(low, ['thank','thanks','awesome','great'])) {
+          addBotMsg("You're welcome! Feel free to ask anything else or <a href='#contact'>reach out to Krishna directly</a>.");
+        } else {
+          addBotMsg("I can help with questions about Krishna's <strong>experience</strong>, <strong>skills</strong>, <strong>companies</strong>, <strong>education</strong>, <strong>Extend apps</strong>, <strong>integrations</strong>, or <strong>contact info</strong>. Try one of those topics!");
+        }
+      }, 500);
+    }
+
+    function match(text, keywords) {
+      return keywords.some(function(k) { return text.indexOf(k) !== -1; });
+    }
+  })();
 </script>
 
 </body>
