@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 50">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E63946"/>
+      <stop offset="100%" stop-color="#FF6B35"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="5" width="40" height="40" rx="8" fill="url(#grad)"/>
+  <text x="20" y="32" text-anchor="middle" font-family="Orbitron,sans-serif" font-weight="800" font-size="16" fill="white">RR</text>
+  <text x="52" y="24" font-family="Orbitron,sans-serif" font-weight="700" font-size="14" fill="white" letter-spacing="1">RED ROCK</text>
+  <text x="52" y="40" font-family="Rajdhani,sans-serif" font-weight="500" font-size="10" fill="#B0B0C0" letter-spacing="2">MINERALS</text>
+</svg>

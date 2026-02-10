@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gkchaitanya1503.github.io/redrockminerals/sitemap.xml
