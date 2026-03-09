@@ -179,6 +179,50 @@
             50% { transform: translateY(10px); }
         }
 
+        /* ===== PHOTO SHOWCASE ===== */
+        .photo-section {
+            background: linear-gradient(180deg, var(--jungle) 0%, #122a1e 50%, var(--cream) 100%);
+            padding: 3rem 1.5rem 5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .photo-frame {
+            position: relative;
+            display: inline-block;
+            animation: dinoEntrance 1s 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+        }
+
+        .photo-frame img {
+            width: 280px;
+            height: 340px;
+            object-fit: cover;
+            object-position: top center;
+            border-radius: 200px 200px 30px 30px;
+            border: 6px solid var(--gold);
+            box-shadow: 0 8px 40px rgba(0,0,0,0.4), 0 0 0 12px rgba(233,196,106,0.15);
+            display: block;
+        }
+
+        .photo-caption {
+            font-family: 'Bubblegum Sans', cursive;
+            font-size: 1.4rem;
+            color: var(--gold);
+            margin-top: 1rem;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .photo-dinos {
+            font-size: 2rem;
+            margin-top: 0.3rem;
+            letter-spacing: 0.5rem;
+        }
+
+        @media (max-width: 600px) {
+            .photo-frame img { width: 220px; height: 270px; }
+        }
+
         /* ===== SECTION 2: PARTY DETAILS ===== */
         .details {
             background: var(--cream);
@@ -620,6 +664,15 @@
         <path d="M0 80 Q360 20 720 70 Q1080 120 1440 60 L1440 120 L0 120Z" fill="#2d6a4f" opacity="0.6"/>
         <path d="M0 100 Q360 50 720 90 Q1080 130 1440 80 L1440 120 L0 120Z" fill="#52b788" opacity="0.4"/>
     </svg>
+</section>
+
+<!-- ===== PHOTO SHOWCASE ===== -->
+<section class="photo-section">
+    <div class="photo-frame reveal">
+        <img src="arjun.jpg" alt="Arjun — the Birthday Boy!">
+    </div>
+    <div class="photo-caption reveal">🌟 The Birthday Dino himself! 🌟</div>
+    <div class="photo-dinos reveal">🦕 🎂 🦖</div>
 </section>
 
 <!-- ===== PARTY DETAILS ===== -->
