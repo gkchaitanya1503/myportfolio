@@ -316,42 +316,46 @@
             box-shadow: 4px 7px 0 var(--forest);
         }
 
-        .perks-heading {
-            font-family: 'Boogaloo', cursive;
-            font-size: 1.3rem;
-            color: var(--forest);
-            margin-bottom: 1rem;
+        .celebrate-heading {
+            font-family: 'Bubblegum Sans', cursive;
+            font-size: clamp(1.4rem, 4vw, 1.8rem);
+            color: var(--jungle);
+            margin-bottom: 0.4rem;
         }
 
-        .perks-grid {
+        .celebrate-sub {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 1.2rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .celebrate-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 1rem;
-            max-width: 700px;
+            max-width: 550px;
             margin: 0 auto;
         }
 
-        .perk-card {
+        .celebrate-card {
             background: #fff;
-            border-radius: 10px;
-            padding: 1rem 0.8rem;
+            border-radius: 14px;
+            padding: 1.2rem 0.8rem;
             text-align: center;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
             transition: transform 0.3s;
         }
-        .perk-card:hover { transform: translateY(-3px); }
-        .perk-card:nth-child(1) { border-bottom: 3px solid var(--lava); }
-        .perk-card:nth-child(2) { border-bottom: 3px solid var(--moss); }
-        .perk-card:nth-child(3) { border-bottom: 3px solid var(--gold); }
-        .perk-card:nth-child(4) { border-bottom: 3px solid var(--amber); }
-        .perk-card:nth-child(5) { border-bottom: 3px solid var(--forest); }
-        .perk-card:nth-child(6) { border-bottom: 3px solid var(--lava); }
-        .perk-card .perk-icon { font-size: 1.8rem; }
-        .perk-card .perk-label {
+        .celebrate-card:hover { transform: translateY(-3px); }
+        .celebrate-card .cel-icon { font-size: 2rem; }
+        .celebrate-card .cel-label {
             font-family: 'Boogaloo', cursive;
             font-size: 0.95rem;
             color: var(--jungle);
             margin-top: 0.3rem;
+            line-height: 1.2;
         }
 
         /* ===== SECTION 3: WAIVER ===== */
@@ -551,7 +555,7 @@
             text-transform: uppercase;
         }
 
-        /* ===== RESPONSIVE ===== */
+        /* ===== RESPONSIVE (MOBILE-FIRST) ===== */
         @media (max-width: 600px) {
             .form-row { flex-direction: column; gap: 0; }
             .tree-left, .tree-right { display: none; }
@@ -559,6 +563,29 @@
             .dino-container svg { width: 260px; height: 220px; }
             .detail-grid { grid-template-columns: 1fr; }
             .details, .rsvp { padding: 5rem 1rem; }
+            .hero { padding: 1.5rem 1rem 3rem; min-height: 100svh; }
+            .ribbon { font-size: 0.9rem; padding: 0.4rem 1.2rem; }
+            .hero-date { font-size: 1.1rem; }
+            .hero-venue { font-size: 0.85rem; }
+            .scroll-hint { font-size: 0.85rem; margin-top: 1.2rem; }
+            .waiver { padding: 3.5rem 1rem; }
+            .waiver-box { padding: 1.8rem 1.2rem; }
+            .waiver-box h2 { font-size: 1.5rem; }
+            .rsvp-card { padding: 1.8rem 1.2rem; }
+            .submit-btn { font-size: 1.1rem; padding: 0.8rem 1.8rem; }
+            .map-btn { font-size: 1rem; padding: 0.7rem 1.5rem; }
+            .celebrate-grid { grid-template-columns: repeat(2, 1fr); }
+            .photo-section { padding: 2rem 1rem 3.5rem; }
+        }
+
+        /* Tap-friendly inputs on mobile */
+        @media (max-width: 600px) {
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                font-size: 16px;
+                padding: 0.8rem 0.9rem;
+            }
         }
     </style>
 </head>
@@ -705,7 +732,7 @@
         <div class="detail-card reveal">
             <div class="card-icon">🎂</div>
             <div class="card-title">Birthday Boy</div>
-            <div class="card-sub">Arjun Turns 6!<br>🦕 Platinum Party Package</div>
+            <div class="card-sub">Arjun Turns 6!<br>🦕 It's going to be ROAR-some!</div>
         </div>
     </div>
 
@@ -714,14 +741,15 @@
     </div>
 
     <div class="reveal">
-        <div class="perks-heading">What's Included</div>
-        <div class="perks-grid">
-            <div class="perk-card reveal"><div class="perk-icon">🍕</div><div class="perk-label">2 Large Pizzas</div></div>
-            <div class="perk-card reveal"><div class="perk-icon">🧦</div><div class="perk-label">Urban Air Socks</div></div>
-            <div class="perk-card reveal"><div class="perk-icon">🎈</div><div class="perk-label">Balloons & Décor</div></div>
-            <div class="perk-card reveal"><div class="perk-icon">🏃</div><div class="perk-label">All-Day Play!</div></div>
-            <div class="perk-card reveal"><div class="perk-icon">🎯</div><div class="perk-label">Private Room</div></div>
-            <div class="perk-card reveal"><div class="perk-icon">💧</div><div class="perk-label">10 Bottled Waters</div></div>
+        <div class="celebrate-heading">Celebrate with Arjun! 🎉</div>
+        <div class="celebrate-sub">Here's what's in store for the little dinos</div>
+        <div class="celebrate-grid">
+            <div class="celebrate-card reveal"><div class="cel-icon">🦕</div><div class="cel-label">Dino-Themed Party</div></div>
+            <div class="celebrate-card reveal"><div class="cel-icon">🍕</div><div class="cel-label">Pizza & Drinks</div></div>
+            <div class="celebrate-card reveal"><div class="cel-icon">🎂</div><div class="cel-label">Birthday Cake</div></div>
+            <div class="celebrate-card reveal"><div class="cel-icon">🤸</div><div class="cel-label">Jump & Play All Day</div></div>
+            <div class="celebrate-card reveal"><div class="cel-icon">🎈</div><div class="cel-label">Balloons & Fun</div></div>
+            <div class="celebrate-card reveal"><div class="cel-icon">🎁</div><div class="cel-label">Party Favors</div></div>
         </div>
     </div>
 </section>
@@ -759,12 +787,12 @@
                 </div>
             </div>
             <div class="form-group">
-                <label>Child's Name *</label>
-                <input type="text" id="child_name" required placeholder="Your child's name">
+                <label>Child(ren)'s Name(s) *</label>
+                <input type="text" id="child_name" required placeholder="e.g. Ava, Max">
             </div>
             <div class="form-row">
                 <div class="form-group">
-                    <label># of Kids</label>
+                    <label># of Kids Attending</label>
                     <select id="num_kids">
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -773,17 +801,22 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>Adults Staying?</label>
-                    <select id="adults_staying">
-                        <option value="Yes staying">Yes, staying</option>
-                        <option value="Drop off">Drop off</option>
-                        <option value="Not sure">Not sure</option>
+                    <label># of Adults Attending</label>
+                    <select id="num_adults">
+                        <option value="0">0 (Drop off)</option>
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3+">3+</option>
                     </select>
                 </div>
             </div>
             <div class="form-group">
+                <label>Adult Name(s)</label>
+                <input type="text" id="adult_names" placeholder="e.g. John, Sarah">
+            </div>
+            <div class="form-group">
                 <label>Allergies / Dietary Notes</label>
-                <textarea id="allergies" placeholder="Anything we should know?"></textarea>
+                <textarea id="allergies" placeholder="Anything we should know about your child(ren)?"></textarea>
             </div>
             <button type="submit" class="submit-btn">🦕 We're Coming! Count Us In!</button>
         </form>
@@ -902,7 +935,8 @@
             email: document.getElementById('email').value.trim(),
             child_name: document.getElementById('child_name').value.trim(),
             num_kids: document.getElementById('num_kids').value,
-            adults_staying: document.getElementById('adults_staying').value,
+            num_adults: document.getElementById('num_adults').value,
+            adult_names: document.getElementById('adult_names').value.trim(),
             allergies: document.getElementById('allergies').value.trim()
         };
 
