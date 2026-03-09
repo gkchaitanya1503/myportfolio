@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Arjun!</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            z-index: 2;
+            padding: 2rem;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient 4s ease infinite;
+        }
+
+        @keyframes gradient {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: #a0a0cc;
+            margin-bottom: 2rem;
+        }
+
+        .cake {
+            font-size: 6rem;
+            margin: 1.5rem 0;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .message {
+            font-size: 1.2rem;
+            max-width: 500px;
+            line-height: 1.8;
+            color: #c0c0e0;
+            margin: 1.5rem auto;
+        }
+
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            top: -10px;
+            animation: fall linear forwards;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(105vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        .balloon {
+            position: fixed;
+            font-size: 2.5rem;
+            bottom: -60px;
+            animation: float linear forwards;
+        }
+
+        @keyframes float {
+            to {
+                transform: translateY(-110vh) rotate(15deg);
+                opacity: 0;
+            }
+        }
+
+        .btn {
+            margin-top: 2rem;
+            padding: 12px 36px;
+            font-size: 1.1rem;
+            border: 2px solid #ff6b6b;
+            background: transparent;
+            color: #ff6b6b;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            background: #ff6b6b;
+            color: #1a1a2e;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2.2rem; }
+            .cake { font-size: 4rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Happy Birthday, Arjun!</h1>
+        <p class="subtitle">Wishing you an amazing day</p>
+        <div class="cake">&#127874;</div>
+        <p class="message">
+            May this year bring you endless joy, success, and all the wonderful
+            things you deserve. Here's to celebrating you today and every day!
+        </p>
+        <button class="btn" onclick="celebrate()">Celebrate!</button>
+    </div>
+
+    <script>
+        const colors = ['#ff6b6b','#feca57','#48dbfb','#ff9ff3','#54a0ff','#5f27cd','#01a3a4','#f368e0'];
+        const balloons = ['&#127880;','&#127881;','&#127882;','&#127879;','&#127878;'];
+
+        function spawnConfetti() {
+            for (let i = 0; i < 30; i++) {
+                const c = document.createElement('div');
+                c.className = 'confetti';
+                c.style.left = Math.random() * 100 + 'vw';
+                c.style.background = colors[Math.floor(Math.random() * colors.length)];
+                c.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+                c.style.width = (Math.random() * 8 + 5) + 'px';
+                c.style.height = (Math.random() * 8 + 5) + 'px';
+                c.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                c.style.animationDelay = (Math.random() * 2) + 's';
+                document.body.appendChild(c);
+                setTimeout(() => c.remove(), 6000);
+            }
+        }
+
+        function spawnBalloons() {
+            for (let i = 0; i < 8; i++) {
+                const b = document.createElement('div');
+                b.className = 'balloon';
+                b.innerHTML = balloons[Math.floor(Math.random() * balloons.length)];
+                b.style.left = Math.random() * 100 + 'vw';
+                b.style.animationDuration = (Math.random() * 4 + 4) + 's';
+                b.style.animationDelay = (Math.random() * 3) + 's';
+                document.body.appendChild(b);
+                setTimeout(() => b.remove(), 9000);
+            }
+        }
+
+        function celebrate() {
+            spawnConfetti();
+            spawnBalloons();
+        }
+
+        // Auto-celebrate on load
+        window.addEventListener('load', () => { celebrate(); });
+    </script>
+</body>
+</html>
