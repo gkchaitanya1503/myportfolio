@@ -165,13 +165,59 @@
             margin-top: 0.3rem;
         }
 
+        .hero-rsvp-btn {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--jungle);
+            font-family: 'Bubblegum Sans', cursive;
+            font-size: 1.2rem;
+            padding: 0.8rem 2.2rem;
+            border-radius: 10px;
+            text-decoration: none;
+            box-shadow: 4px 4px 0 rgba(0,0,0,0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 1.5rem;
+            animation: slamIn 0.8s 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+        }
+        .hero-rsvp-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 4px 7px 0 rgba(0,0,0,0.3);
+        }
+
         .scroll-hint {
-            margin-top: 2rem;
+            margin-top: 1.2rem;
             font-family: 'Boogaloo', cursive;
             font-size: 0.95rem;
             color: var(--moss);
             letter-spacing: 2px;
             animation: bob 2s ease-in-out infinite;
+        }
+
+        /* ===== STICKY RSVP BUTTON (MOBILE) ===== */
+        .sticky-rsvp {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            background: linear-gradient(135deg, var(--jungle), var(--forest));
+            padding: 0.7rem 1rem;
+            text-align: center;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.2);
+        }
+        .sticky-rsvp a {
+            display: block;
+            color: var(--gold);
+            font-family: 'Bubblegum Sans', cursive;
+            font-size: 1.15rem;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+        .sticky-rsvp.hidden { transform: translateY(100%); }
+        @media (max-width: 600px) {
+            .sticky-rsvp { display: block; }
+            body { padding-bottom: 3.2rem; }
         }
 
         @keyframes bob {
@@ -203,6 +249,7 @@
             border: 6px solid var(--gold);
             box-shadow: 0 8px 40px rgba(0,0,0,0.4), 0 0 0 12px rgba(233,196,106,0.15);
             display: block;
+            transform: scale(1.15);
         }
 
         .photo-caption {
@@ -281,6 +328,8 @@
         .detail-card:nth-child(2) { border-left-color: var(--amber); }
         .detail-card:nth-child(3) { border-left-color: var(--lava); }
         .detail-card:nth-child(4) { border-left-color: var(--gold); }
+        .detail-card:nth-child(5) { border-left-color: var(--forest); }
+        .detail-card:nth-child(6) { border-left-color: var(--amber); }
 
         .detail-card .card-icon {
             font-size: 1.8rem;
@@ -314,48 +363,6 @@
         .map-btn:hover {
             transform: translateY(-3px);
             box-shadow: 4px 7px 0 var(--forest);
-        }
-
-        .celebrate-heading {
-            font-family: 'Bubblegum Sans', cursive;
-            font-size: clamp(1.4rem, 4vw, 1.8rem);
-            color: var(--jungle);
-            margin-bottom: 0.4rem;
-        }
-
-        .celebrate-sub {
-            font-size: 0.95rem;
-            color: #666;
-            margin-bottom: 1.2rem;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .celebrate-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-            max-width: 550px;
-            margin: 0 auto;
-        }
-
-        .celebrate-card {
-            background: #fff;
-            border-radius: 14px;
-            padding: 1.2rem 0.8rem;
-            text-align: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-            transition: transform 0.3s;
-        }
-        .celebrate-card:hover { transform: translateY(-3px); }
-        .celebrate-card .cel-icon { font-size: 2rem; }
-        .celebrate-card .cel-label {
-            font-family: 'Boogaloo', cursive;
-            font-size: 0.95rem;
-            color: var(--jungle);
-            margin-top: 0.3rem;
-            line-height: 1.2;
         }
 
         /* ===== SECTION 3: WAIVER ===== */
@@ -574,8 +581,8 @@
             .rsvp-card { padding: 1.8rem 1.2rem; }
             .submit-btn { font-size: 1.1rem; padding: 0.8rem 1.8rem; }
             .map-btn { font-size: 1rem; padding: 0.7rem 1.5rem; }
-            .celebrate-grid { grid-template-columns: repeat(2, 1fr); }
             .photo-section { padding: 2rem 1rem 3.5rem; }
+            .hero-rsvp-btn { font-size: 1.05rem; padding: 0.7rem 1.8rem; }
         }
 
         /* Tap-friendly inputs on mobile */
@@ -684,6 +691,7 @@
 
         <div class="hero-date label-font">Saturday · March 28, 2026 · 12–2 PM</div>
         <div class="hero-venue">Urban Air Adventure Park · Aurora, CO</div>
+        <a href="#rsvp" class="hero-rsvp-btn">🦖 RSVP Now!</a>
         <div class="scroll-hint label-font">▼ SCROLL FOR DETAILS ▼</div>
     </div>
 
@@ -730,27 +738,19 @@
             <div class="card-sub">Urban Air Adventure Park<br>15400 E. Briarwood Cir · Aurora CO 80016</div>
         </div>
         <div class="detail-card reveal">
-            <div class="card-icon">🎂</div>
-            <div class="card-title">Birthday Boy</div>
-            <div class="card-sub">Arjun Turns 6!<br>🦕 It's going to be ROAR-some!</div>
+            <div class="card-icon">🍕</div>
+            <div class="card-title">Lunch</div>
+            <div class="card-sub">Pizza, drinks & birthday cake<br>on us — come hungry!</div>
+        </div>
+        <div class="detail-card reveal">
+            <div class="card-icon">🤸</div>
+            <div class="card-title">All-Day Play</div>
+            <div class="card-sub">Kids get full-day access<br>to all attractions!</div>
         </div>
     </div>
 
     <div class="reveal">
         <a href="https://maps.google.com/?q=15400+E+Briarwood+Circle+Aurora+CO+80016" target="_blank" class="map-btn">📍 Open in Google Maps</a>
-    </div>
-
-    <div class="reveal">
-        <div class="celebrate-heading">Celebrate with Arjun! 🎉</div>
-        <div class="celebrate-sub">Here's what's in store for the little dinos</div>
-        <div class="celebrate-grid">
-            <div class="celebrate-card reveal"><div class="cel-icon">🦕</div><div class="cel-label">Dino-Themed Party</div></div>
-            <div class="celebrate-card reveal"><div class="cel-icon">🍕</div><div class="cel-label">Pizza & Drinks</div></div>
-            <div class="celebrate-card reveal"><div class="cel-icon">🎂</div><div class="cel-label">Birthday Cake</div></div>
-            <div class="celebrate-card reveal"><div class="cel-icon">🤸</div><div class="cel-label">Jump & Play All Day</div></div>
-            <div class="celebrate-card reveal"><div class="cel-icon">🎈</div><div class="cel-label">Balloons & Fun</div></div>
-            <div class="celebrate-card reveal"><div class="cel-icon">🎁</div><div class="cel-label">Party Favors</div></div>
-        </div>
     </div>
 </section>
 
@@ -765,7 +765,7 @@
 </section>
 
 <!-- ===== RSVP ===== -->
-<section class="rsvp">
+<section class="rsvp" id="rsvp">
     <div class="reveal">
         <h2 class="heading-font">RSVP for the Party 🦖</h2>
     </div>
@@ -828,6 +828,11 @@
         </div>
     </div>
 </section>
+
+<!-- ===== STICKY RSVP (MOBILE) ===== -->
+<div class="sticky-rsvp" id="stickyRsvp">
+    <a href="#rsvp">🦖 RSVP for Arjun's Party!</a>
+</div>
 
 <!-- ===== FOOTER ===== -->
 <footer class="footer">
@@ -953,7 +958,26 @@
         // Show success
         this.style.display = 'none';
         document.getElementById('successState').classList.add('show');
+
+        // Hide sticky bar after RSVP
+        const sticky = document.getElementById('stickyRsvp');
+        if (sticky) sticky.style.display = 'none';
     });
+
+    // ===== STICKY RSVP BAR: hide when RSVP section is in view =====
+    (function() {
+        const sticky = document.getElementById('stickyRsvp');
+        const rsvpSection = document.getElementById('rsvp');
+        if (!sticky || !rsvpSection) return;
+
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                sticky.style.transform = entry.isIntersecting ? 'translateY(100%)' : 'translateY(0)';
+                sticky.style.transition = 'transform 0.3s ease';
+            });
+        }, { threshold: 0.1 });
+        obs.observe(rsvpSection);
+    })();
 </script>
 </body>
 </html>
