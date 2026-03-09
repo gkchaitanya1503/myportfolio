@@ -3,172 +3,923 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday Arjun!</title>
+    <title>🦕 Arjun's 6th Birthday — Dino Party!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Boogaloo&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        /* ===== RESET & BASE ===== */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --jungle: #1a3a2a;
+            --forest: #2d6a4f;
+            --moss: #52b788;
+            --leaf: #95d5b2;
+            --amber: #f4a261;
+            --lava: #e76f51;
+            --gold: #e9c46a;
+            --cream: #fdf8f0;
+        }
+
+        html { scroll-behavior: smooth; }
 
         body {
+            font-family: 'Nunito', sans-serif;
+            color: #333;
+            overflow-x: hidden;
+            cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32'><text y='24' font-size='24'>🦕</text></svg>") 4 4, auto;
+        }
+
+        h1, h2, h3, .heading-font { font-family: 'Bubblegum Sans', cursive; }
+        .label-font { font-family: 'Boogaloo', cursive; }
+
+        /* ===== SCROLL REVEAL ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== SECTION 1: HERO ===== */
+        .hero {
+            position: relative;
             min-height: 100vh;
+            background: var(--jungle);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #fff;
+            text-align: center;
+            padding: 2rem 1rem 4rem;
             overflow: hidden;
         }
 
-        .container {
-            text-align: center;
+        .hero canvas {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
             z-index: 2;
-            padding: 2rem;
         }
 
-        h1 {
-            font-size: 3.5rem;
-            margin-bottom: 0.5rem;
-            background: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
-            background-size: 300% 300%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: gradient 4s ease infinite;
+        /* Jungle floor SVG */
+        .jungle-floor {
+            position: absolute;
+            bottom: 0; left: 0; width: 100%;
+            z-index: 1;
         }
 
-        @keyframes gradient {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+        /* Tree decorations */
+        .tree-left, .tree-right {
+            position: absolute;
+            font-size: 4rem;
+            z-index: 2;
+            opacity: 0.5;
+            pointer-events: none;
         }
+        .tree-left { left: 1rem; top: 50%; transform: translateY(-50%); }
+        .tree-right { right: 1rem; top: 50%; transform: translateY(-50%); }
+        .tree-left span, .tree-right span { display: block; line-height: 1.3; }
 
-        .subtitle {
-            font-size: 1.5rem;
-            color: #a0a0cc;
-            margin-bottom: 2rem;
-        }
-
-        .cake {
-            font-size: 6rem;
-            margin: 1.5rem 0;
-            animation: bounce 2s ease-in-out infinite;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-
-        .message {
-            font-size: 1.2rem;
-            max-width: 500px;
-            line-height: 1.8;
-            color: #c0c0e0;
-            margin: 1.5rem auto;
-        }
-
-        .confetti {
-            position: fixed;
-            width: 10px;
-            height: 10px;
-            top: -10px;
-            animation: fall linear forwards;
-        }
-
-        @keyframes fall {
-            to {
-                transform: translateY(105vh) rotate(720deg);
-                opacity: 0;
-            }
-        }
-
-        .balloon {
-            position: fixed;
-            font-size: 2.5rem;
-            bottom: -60px;
-            animation: float linear forwards;
-        }
-
-        @keyframes float {
-            to {
-                transform: translateY(-110vh) rotate(15deg);
-                opacity: 0;
-            }
-        }
-
-        .btn {
-            margin-top: 2rem;
-            padding: 12px 36px;
+        /* Gold ribbon */
+        .ribbon {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--jungle);
+            font-family: 'Boogaloo', cursive;
             font-size: 1.1rem;
-            border: 2px solid #ff6b6b;
-            background: transparent;
-            color: #ff6b6b;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s;
+            letter-spacing: 2px;
+            padding: 0.5rem 2rem;
+            border-radius: 4px;
+            box-shadow: 4px 4px 0 rgba(0,0,0,0.3);
+            margin-bottom: 1.5rem;
         }
 
-        .btn:hover {
-            background: #ff6b6b;
-            color: #1a1a2e;
+        /* Hero name */
+        .hero-name {
+            font-family: 'Bubblegum Sans', cursive;
+            font-size: clamp(4rem, 12vw, 8rem);
+            color: var(--cream);
+            text-shadow: 4px 4px 0 var(--forest), 6px 6px 15px rgba(0,0,0,0.4);
+            animation: slamIn 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+            line-height: 1;
+        }
+
+        .hero-turning {
+            font-family: 'Boogaloo', cursive;
+            font-size: 1.4rem;
+            color: var(--leaf);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin: 0.5rem 0;
+        }
+
+        .hero-age {
+            font-family: 'Bubblegum Sans', cursive;
+            font-size: clamp(5rem, 15vw, 10rem);
+            color: var(--gold);
+            text-shadow: 4px 4px 0 rgba(0,0,0,0.3);
+            line-height: 1;
+            animation: slamIn 0.8s 0.3s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+        }
+
+        @keyframes slamIn {
+            0% { transform: scale(3); opacity: 0; filter: blur(10px); }
+            100% { transform: scale(1); opacity: 1; filter: blur(0); }
+        }
+
+        /* SVG Dino */
+        .dino-container {
+            position: relative;
+            width: 340px;
+            height: 280px;
+            margin: 1.5rem auto;
+            animation: dinoEntrance 1s 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+        }
+
+        @keyframes dinoEntrance {
+            0% { transform: scale(0) rotate(-20deg); opacity: 0; }
+            100% { transform: scale(1) rotate(0); opacity: 1; }
+        }
+
+        .hero-date {
+            font-family: 'Boogaloo', cursive;
+            font-size: 1.3rem;
+            color: var(--leaf);
+            letter-spacing: 1px;
+            margin-top: 1rem;
+        }
+
+        .hero-venue {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.5);
+            margin-top: 0.3rem;
+        }
+
+        .scroll-hint {
+            margin-top: 2rem;
+            font-family: 'Boogaloo', cursive;
+            font-size: 0.95rem;
+            color: var(--moss);
+            letter-spacing: 2px;
+            animation: bob 2s ease-in-out infinite;
+        }
+
+        @keyframes bob {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(10px); }
+        }
+
+        /* ===== PHOTO SHOWCASE ===== */
+        .photo-section {
+            background: linear-gradient(180deg, var(--jungle) 0%, #122a1e 50%, var(--cream) 100%);
+            padding: 3rem 1.5rem 5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .photo-frame {
+            position: relative;
+            display: inline-block;
+            animation: dinoEntrance 1s 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+        }
+
+        .photo-frame img {
+            width: 280px;
+            height: 340px;
+            object-fit: cover;
+            object-position: top center;
+            border-radius: 200px 200px 30px 30px;
+            border: 6px solid var(--gold);
+            box-shadow: 0 8px 40px rgba(0,0,0,0.4), 0 0 0 12px rgba(233,196,106,0.15);
+            display: block;
+        }
+
+        .photo-caption {
+            font-family: 'Bubblegum Sans', cursive;
+            font-size: 1.4rem;
+            color: var(--gold);
+            margin-top: 1rem;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .photo-dinos {
+            font-size: 2rem;
+            margin-top: 0.3rem;
+            letter-spacing: 0.5rem;
         }
 
         @media (max-width: 600px) {
-            h1 { font-size: 2.2rem; }
-            .cake { font-size: 4rem; }
+            .photo-frame img { width: 220px; height: 270px; }
+        }
+
+        /* ===== SECTION 2: PARTY DETAILS ===== */
+        .details {
+            background: var(--cream);
+            clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%);
+            padding: 6rem 1.5rem;
+            text-align: center;
+        }
+
+        .eyebrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        .eyebrow-line {
+            width: 50px;
+            height: 2px;
+            background: var(--moss);
+        }
+        .eyebrow-text {
+            font-family: 'Boogaloo', cursive;
+            font-size: 1rem;
+            color: var(--forest);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .details h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: var(--jungle);
+            margin-bottom: 2rem;
+        }
+
+        .detail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .detail-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: left;
+            border-left: 5px solid var(--moss);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .detail-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+        .detail-card:nth-child(2) { border-left-color: var(--amber); }
+        .detail-card:nth-child(3) { border-left-color: var(--lava); }
+        .detail-card:nth-child(4) { border-left-color: var(--gold); }
+
+        .detail-card .card-icon {
+            font-size: 1.8rem;
+            margin-bottom: 0.3rem;
+        }
+        .detail-card .card-title {
+            font-family: 'Boogaloo', cursive;
+            font-size: 1.15rem;
+            color: var(--jungle);
+        }
+        .detail-card .card-sub {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 0.2rem;
+        }
+
+        .map-btn {
+            display: inline-block;
+            background: var(--jungle);
+            color: var(--cream);
+            font-family: 'Boogaloo', cursive;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            padding: 0.8rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            box-shadow: 4px 4px 0 var(--forest);
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-bottom: 2.5rem;
+        }
+        .map-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 4px 7px 0 var(--forest);
+        }
+
+        .perks-heading {
+            font-family: 'Boogaloo', cursive;
+            font-size: 1.3rem;
+            color: var(--forest);
+            margin-bottom: 1rem;
+        }
+
+        .perks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+            gap: 1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .perk-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 1rem 0.8rem;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        .perk-card:hover { transform: translateY(-3px); }
+        .perk-card:nth-child(1) { border-bottom: 3px solid var(--lava); }
+        .perk-card:nth-child(2) { border-bottom: 3px solid var(--moss); }
+        .perk-card:nth-child(3) { border-bottom: 3px solid var(--gold); }
+        .perk-card:nth-child(4) { border-bottom: 3px solid var(--amber); }
+        .perk-card:nth-child(5) { border-bottom: 3px solid var(--forest); }
+        .perk-card:nth-child(6) { border-bottom: 3px solid var(--lava); }
+        .perk-card .perk-icon { font-size: 1.8rem; }
+        .perk-card .perk-label {
+            font-family: 'Boogaloo', cursive;
+            font-size: 0.95rem;
+            color: var(--jungle);
+            margin-top: 0.3rem;
+        }
+
+        /* ===== SECTION 3: WAIVER ===== */
+        .waiver {
+            background: linear-gradient(135deg, #1e0f00, #3d2000);
+            padding: 5rem 1.5rem;
+            text-align: center;
+        }
+
+        .waiver-box {
+            max-width: 600px;
+            margin: 0 auto;
+            border: 2px solid var(--gold);
+            border-radius: 16px;
+            background: rgba(255,255,255,0.06);
+            padding: 2.5rem 2rem;
+        }
+
+        .waiver-icon {
+            font-size: 3rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+
+        .waiver-box h2 {
+            color: var(--gold);
+            font-size: 2rem;
+            margin: 0.8rem 0;
+        }
+
+        .waiver-box p {
+            color: rgba(255,255,255,0.75);
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .waiver-btn {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--jungle);
+            font-family: 'Bubblegum Sans', cursive;
+            font-size: 1.2rem;
+            padding: 0.8rem 2.2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            box-shadow: 3px 3px 0 rgba(0,0,0,0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .waiver-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 3px 6px 0 rgba(0,0,0,0.4);
+        }
+
+        /* ===== SECTION 4: RSVP ===== */
+        .rsvp {
+            background: var(--cream);
+            clip-path: polygon(0 0, 100% 5%, 100% 100%, 0 95%);
+            padding: 6rem 1.5rem;
+            text-align: center;
+        }
+
+        .rsvp h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: var(--jungle);
+            margin-bottom: 2rem;
+        }
+
+        .rsvp-card {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 0 0 4px var(--leaf), 0 8px 30px rgba(0,0,0,0.08);
+        }
+
+        .form-row {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        .form-row > * { flex: 1; }
+
+        .form-group {
+            text-align: left;
+            margin-bottom: 1rem;
+        }
+        .form-group label {
+            display: block;
+            font-family: 'Boogaloo', cursive;
+            font-size: 0.95rem;
+            color: var(--forest);
+            margin-bottom: 0.3rem;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.7rem 0.9rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Nunito', sans-serif;
+            font-size: 0.95rem;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            background: #fff;
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--forest);
+            box-shadow: 0 0 0 3px rgba(45,106,79,0.15);
+        }
+        .form-group textarea { resize: vertical; min-height: 70px; }
+
+        .form-group .error-field {
+            border-color: var(--lava) !important;
+            animation: shake 0.4s ease;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-6px); }
+            40%, 80% { transform: translateX(6px); }
+        }
+
+        .submit-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--jungle), var(--forest));
+            color: var(--cream);
+            font-family: 'Bubblegum Sans', cursive;
+            font-size: 1.25rem;
+            padding: 0.9rem 2.5rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 4px 4px 0 var(--moss);
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+            overflow: hidden;
+            margin-top: 0.5rem;
+        }
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 4px 7px 0 var(--moss);
+        }
+        .submit-btn::after {
+            content: '';
+            position: absolute;
+            top: -50%; left: -75%;
+            width: 50%;
+            height: 200%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transform: skewX(-20deg);
+            transition: left 0.6s;
+        }
+        .submit-btn:hover::after {
+            left: 125%;
+        }
+
+        .success-state {
+            display: none;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        .success-state.show { display: block; }
+        .success-state .big-emoji { font-size: 4rem; }
+        .success-state h3 {
+            font-family: 'Bubblegum Sans', cursive;
+            font-size: 2rem;
+            color: var(--jungle);
+            margin: 0.5rem 0;
+        }
+        .success-state p { color: #666; font-size: 1rem; }
+
+        /* ===== SECTION 5: FOOTER ===== */
+        .footer {
+            background: var(--jungle);
+            text-align: center;
+            padding: 2.5rem 1rem;
+        }
+        .footer .dino-row {
+            font-size: 2.5rem;
+            letter-spacing: 0.5rem;
+            margin-bottom: 0.8rem;
+        }
+        .footer p {
+            font-family: 'Boogaloo', cursive;
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.4);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 600px) {
+            .form-row { flex-direction: column; gap: 0; }
+            .tree-left, .tree-right { display: none; }
+            .dino-container { width: 260px; height: 220px; }
+            .dino-container svg { width: 260px; height: 220px; }
+            .detail-grid { grid-template-columns: 1fr; }
+            .details, .rsvp { padding: 5rem 1rem; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Happy Birthday, Arjun!</h1>
-        <p class="subtitle">Wishing you an amazing day</p>
-        <div class="cake">&#127874;</div>
-        <p class="message">
-            May this year bring you endless joy, success, and all the wonderful
-            things you deserve. Here's to celebrating you today and every day!
-        </p>
-        <button class="btn" onclick="celebrate()">Celebrate!</button>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+    <canvas id="particles"></canvas>
+
+    <div class="tree-left"><span>🌴</span><span>🌿</span><span>🌴</span></div>
+    <div class="tree-right"><span>🌿</span><span>🌴</span><span>🌿</span></div>
+
+    <div class="hero-content">
+        <div class="ribbon">✦ 🎉 YOU ARE INVITED! 🎉 ✦</div>
+        <div class="hero-name">Arjun</div>
+        <div class="hero-turning label-font">is turning</div>
+        <div class="hero-age">6!</div>
+
+        <div class="dino-container">
+            <svg viewBox="0 0 340 280" xmlns="http://www.w3.org/2000/svg">
+                <!-- Balloon strings -->
+                <path d="M205 95 Q210 70 200 45" stroke="#999" fill="none" stroke-width="1.5"/>
+                <path d="M220 90 Q225 60 230 30" stroke="#999" fill="none" stroke-width="1.5"/>
+                <path d="M235 95 Q240 65 255 40" stroke="#999" fill="none" stroke-width="1.5"/>
+                <!-- Balloons -->
+                <ellipse cx="198" cy="35" rx="16" ry="20" fill="#e76f51"/>
+                <ellipse cx="198" cy="35" rx="16" ry="20" fill="url(#balloonShine)" opacity="0.3"/>
+                <ellipse cx="230" cy="20" rx="16" ry="20" fill="#e9c46a"/>
+                <ellipse cx="230" cy="20" rx="16" ry="20" fill="url(#balloonShine)" opacity="0.3"/>
+                <ellipse cx="257" cy="30" rx="16" ry="20" fill="#48b5a0"/>
+                <ellipse cx="257" cy="30" rx="16" ry="20" fill="url(#balloonShine)" opacity="0.3"/>
+                <defs>
+                    <radialGradient id="balloonShine" cx="35%" cy="30%">
+                        <stop offset="0%" stop-color="#fff"/>
+                        <stop offset="100%" stop-color="transparent"/>
+                    </radialGradient>
+                </defs>
+                <!-- Sparkle stars -->
+                <text x="160" y="40" font-size="14" fill="#e9c46a" opacity="0.8">✦</text>
+                <text x="275" y="55" font-size="12" fill="#e9c46a" opacity="0.7">✦</text>
+                <text x="280" y="20" font-size="10" fill="#fff" opacity="0.5">⭐</text>
+                <text x="145" y="65" font-size="10" fill="#fff" opacity="0.5">⭐</text>
+                <!-- Tail -->
+                <path d="M40 185 Q15 175 10 155 Q8 145 18 148 Q28 152 45 170 L70 180" fill="#52b788"/>
+                <path d="M40 185 Q15 175 10 155 Q8 145 18 148 Q28 152 45 170 L70 180" fill="rgba(0,0,0,0.08)"/>
+                <!-- Body -->
+                <ellipse cx="120" cy="185" rx="70" ry="50" fill="#52b788"/>
+                <!-- Belly -->
+                <ellipse cx="125" cy="200" rx="45" ry="32" fill="#95d5b2"/>
+                <!-- Back legs -->
+                <rect x="90" y="220" width="22" height="35" rx="8" fill="#3da87a"/>
+                <rect x="130" y="220" width="22" height="35" rx="8" fill="#3da87a"/>
+                <!-- Feet -->
+                <ellipse cx="101" cy="255" rx="14" ry="7" fill="#3da87a"/>
+                <ellipse cx="141" cy="255" rx="14" ry="7" fill="#3da87a"/>
+                <!-- Front legs -->
+                <rect x="155" y="215" width="18" height="30" rx="7" fill="#48a876"/>
+                <rect x="175" y="218" width="18" height="27" rx="7" fill="#48a876"/>
+                <ellipse cx="164" cy="245" rx="12" ry="6" fill="#48a876"/>
+                <ellipse cx="184" cy="245" rx="12" ry="6" fill="#48a876"/>
+                <!-- Neck -->
+                <path d="M165 170 Q185 140 195 115 Q200 100 210 100 Q215 105 210 115 Q200 145 185 175" fill="#52b788"/>
+                <!-- Head -->
+                <ellipse cx="215" cy="102" rx="30" ry="22" fill="#52b788"/>
+                <!-- Snout -->
+                <ellipse cx="238" cy="107" rx="16" ry="13" fill="#5ec492"/>
+                <!-- Mouth line -->
+                <path d="M228 112 Q238 117 250 113" stroke="#2d6a4f" fill="none" stroke-width="1.5" stroke-linecap="round"/>
+                <!-- Teeth -->
+                <rect x="232" y="112" width="3" height="4" rx="1" fill="#fff"/>
+                <rect x="238" y="113" width="3" height="4" rx="1" fill="#fff"/>
+                <!-- Eye -->
+                <circle cx="222" cy="96" r="6" fill="#fff"/>
+                <circle cx="224" cy="96" r="3.5" fill="#1a3a2a"/>
+                <circle cx="225" cy="95" r="1.2" fill="#fff"/>
+                <!-- Smile blush -->
+                <ellipse cx="232" cy="103" rx="5" ry="3" fill="rgba(231,111,81,0.25)"/>
+                <!-- Spine spikes -->
+                <polygon points="170,155 175,140 180,155" fill="#3da87a"/>
+                <polygon points="157,160 163,143 168,158" fill="#3da87a"/>
+                <polygon points="145,168 150,150 155,165" fill="#3da87a"/>
+                <polygon points="190,148 196,130 202,148" fill="#3da87a"/>
+                <polygon points="200,125 205,110 212,128" fill="#3da87a"/>
+                <!-- Party hat -->
+                <polygon points="202,82 220,50 230,88" fill="#e76f51"/>
+                <polygon points="202,82 220,50 230,88" fill="url(#hatStripe)" opacity="0.4"/>
+                <circle cx="220" cy="48" r="5" fill="#e9c46a"/>
+                <ellipse cx="216" cy="84" rx="16" ry="4" fill="#e9c46a"/>
+                <defs>
+                    <pattern id="hatStripe" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse">
+                        <rect width="4" height="8" fill="#e9c46a"/>
+                    </pattern>
+                </defs>
+            </svg>
+        </div>
+
+        <div class="hero-date label-font">Saturday · March 28, 2026 · 12–2 PM</div>
+        <div class="hero-venue">Urban Air Adventure Park · Aurora, CO</div>
+        <div class="scroll-hint label-font">▼ SCROLL FOR DETAILS ▼</div>
     </div>
 
-    <script>
-        const colors = ['#ff6b6b','#feca57','#48dbfb','#ff9ff3','#54a0ff','#5f27cd','#01a3a4','#f368e0'];
-        const balloons = ['&#127880;','&#127881;','&#127882;','&#127879;','&#127878;'];
+    <svg class="jungle-floor" viewBox="0 0 1440 120" preserveAspectRatio="none">
+        <path d="M0 80 Q360 20 720 70 Q1080 120 1440 60 L1440 120 L0 120Z" fill="#2d6a4f" opacity="0.6"/>
+        <path d="M0 100 Q360 50 720 90 Q1080 130 1440 80 L1440 120 L0 120Z" fill="#52b788" opacity="0.4"/>
+    </svg>
+</section>
 
-        function spawnConfetti() {
-            for (let i = 0; i < 30; i++) {
-                const c = document.createElement('div');
-                c.className = 'confetti';
-                c.style.left = Math.random() * 100 + 'vw';
-                c.style.background = colors[Math.floor(Math.random() * colors.length)];
-                c.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
-                c.style.width = (Math.random() * 8 + 5) + 'px';
-                c.style.height = (Math.random() * 8 + 5) + 'px';
-                c.style.animationDuration = (Math.random() * 3 + 2) + 's';
-                c.style.animationDelay = (Math.random() * 2) + 's';
-                document.body.appendChild(c);
-                setTimeout(() => c.remove(), 6000);
+<!-- ===== PHOTO SHOWCASE ===== -->
+<section class="photo-section">
+    <div class="photo-frame reveal">
+        <img src="Images/Arjun%20Image..%20.jpeg" alt="Arjun — the Birthday Boy!">
+    </div>
+    <div class="photo-caption reveal">🌟 The Birthday Dino himself! 🌟</div>
+    <div class="photo-dinos reveal">🦕 🎂 🦖</div>
+</section>
+
+<!-- ===== PARTY DETAILS ===== -->
+<section class="details">
+    <div class="reveal">
+        <div class="eyebrow">
+            <div class="eyebrow-line"></div>
+            <span class="eyebrow-text">Party Info</span>
+            <div class="eyebrow-line"></div>
+        </div>
+        <h2 class="heading-font">The Dino Expedition 🗺️</h2>
+    </div>
+
+    <div class="detail-grid">
+        <div class="detail-card reveal">
+            <div class="card-icon">📅</div>
+            <div class="card-title">Date</div>
+            <div class="card-sub">Saturday, March 28, 2026</div>
+        </div>
+        <div class="detail-card reveal">
+            <div class="card-icon">⏰</div>
+            <div class="card-title">Time</div>
+            <div class="card-sub">12:00 PM – 2:00 PM<br>2 hours of dino madness!</div>
+        </div>
+        <div class="detail-card reveal">
+            <div class="card-icon">📍</div>
+            <div class="card-title">Location</div>
+            <div class="card-sub">Urban Air Adventure Park<br>15400 E. Briarwood Cir · Aurora CO 80016</div>
+        </div>
+        <div class="detail-card reveal">
+            <div class="card-icon">🎂</div>
+            <div class="card-title">Birthday Boy</div>
+            <div class="card-sub">Arjun Turns 6!<br>🦕 Platinum Party Package</div>
+        </div>
+    </div>
+
+    <div class="reveal">
+        <a href="https://maps.google.com/?q=15400+E+Briarwood+Circle+Aurora+CO+80016" target="_blank" class="map-btn">📍 Open in Google Maps</a>
+    </div>
+
+    <div class="reveal">
+        <div class="perks-heading">What's Included</div>
+        <div class="perks-grid">
+            <div class="perk-card reveal"><div class="perk-icon">🍕</div><div class="perk-label">2 Large Pizzas</div></div>
+            <div class="perk-card reveal"><div class="perk-icon">🧦</div><div class="perk-label">Urban Air Socks</div></div>
+            <div class="perk-card reveal"><div class="perk-icon">🎈</div><div class="perk-label">Balloons & Décor</div></div>
+            <div class="perk-card reveal"><div class="perk-icon">🏃</div><div class="perk-label">All-Day Play!</div></div>
+            <div class="perk-card reveal"><div class="perk-icon">🎯</div><div class="perk-label">Private Room</div></div>
+            <div class="perk-card reveal"><div class="perk-icon">💧</div><div class="perk-label">10 Bottled Waters</div></div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== WAIVER ===== -->
+<section class="waiver">
+    <div class="waiver-box reveal">
+        <div class="waiver-icon">📋</div>
+        <h2 class="heading-font">Waiver Required!</h2>
+        <p>All kids must have a signed waiver <strong>before arriving</strong> at Urban Air. Please complete it ahead of time so the kiddos can jump right into the fun — no delays at check-in!</p>
+        <a href="https://booking.urbanairparks.com/waiver?confirmation=1316262-las5zhyp" target="_blank" class="waiver-btn">✍️ Sign Waiver Now →</a>
+    </div>
+</section>
+
+<!-- ===== RSVP ===== -->
+<section class="rsvp">
+    <div class="reveal">
+        <h2 class="heading-font">RSVP for the Party 🦖</h2>
+    </div>
+
+    <div class="rsvp-card reveal">
+        <form id="rsvpForm">
+            <div class="form-group">
+                <label>Parent / Guardian Name *</label>
+                <input type="text" id="parent_name" required placeholder="Your name">
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Phone *</label>
+                    <input type="tel" id="phone" required placeholder="(555) 123-4567">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="email" placeholder="you@email.com">
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Child's Name *</label>
+                <input type="text" id="child_name" required placeholder="Your child's name">
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label># of Kids</label>
+                    <select id="num_kids">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4+">4+</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Adults Staying?</label>
+                    <select id="adults_staying">
+                        <option value="Yes staying">Yes, staying</option>
+                        <option value="Drop off">Drop off</option>
+                        <option value="Not sure">Not sure</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Allergies / Dietary Notes</label>
+                <textarea id="allergies" placeholder="Anything we should know?"></textarea>
+            </div>
+            <button type="submit" class="submit-btn">🦕 We're Coming! Count Us In!</button>
+        </form>
+
+        <div class="success-state" id="successState">
+            <div class="big-emoji">🥳</div>
+            <h3>ROAR! You're on the list!</h3>
+            <p>Thanks for RSVPing! We can't wait to see you at the Dino Party. Don't forget to sign the waiver!</p>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    <div class="dino-row">🦕 🦖 🦕</div>
+    <p>MADE WITH LOVE FOR ARJUN'S 6TH BIRTHDAY · MARCH 28, 2026</p>
+</footer>
+
+<script>
+    // ===== CONFIG =====
+    const SCRIPT_URL = "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE";
+
+    // ===== PARTICLE CANVAS =====
+    (function() {
+        const canvas = document.getElementById('particles');
+        const ctx = canvas.getContext('2d');
+        const emojis = ['🦕','🦖','🌿','🌴','🥚','✦','🌟','🍃','🎈','⭐'];
+        let particles = [];
+        let w, h;
+
+        function resize() {
+            w = canvas.width = canvas.parentElement.offsetWidth;
+            h = canvas.height = canvas.parentElement.offsetHeight;
+        }
+
+        function init() {
+            resize();
+            particles = [];
+            for (let i = 0; i < 50; i++) {
+                particles.push({
+                    x: Math.random() * w,
+                    y: Math.random() * h,
+                    emoji: emojis[Math.floor(Math.random() * emojis.length)],
+                    size: 14 + Math.random() * 14,
+                    speed: 0.2 + Math.random() * 0.5,
+                    wobbleAmp: 20 + Math.random() * 30,
+                    wobbleSpeed: 0.005 + Math.random() * 0.01,
+                    offset: Math.random() * Math.PI * 2
+                });
             }
         }
 
-        function spawnBalloons() {
-            for (let i = 0; i < 8; i++) {
-                const b = document.createElement('div');
-                b.className = 'balloon';
-                b.innerHTML = balloons[Math.floor(Math.random() * balloons.length)];
-                b.style.left = Math.random() * 100 + 'vw';
-                b.style.animationDuration = (Math.random() * 4 + 4) + 's';
-                b.style.animationDelay = (Math.random() * 3) + 's';
-                document.body.appendChild(b);
-                setTimeout(() => b.remove(), 9000);
+        function draw() {
+            ctx.clearRect(0, 0, w, h);
+            ctx.globalAlpha = 0.05;
+            const t = Date.now();
+            for (const p of particles) {
+                p.y -= p.speed;
+                const wx = p.x + Math.sin(t * p.wobbleSpeed + p.offset) * p.wobbleAmp;
+                if (p.y < -30) { p.y = h + 30; p.x = Math.random() * w; }
+                ctx.font = p.size + 'px serif';
+                ctx.fillText(p.emoji, wx, p.y);
+            }
+            requestAnimationFrame(draw);
+        }
+
+        window.addEventListener('resize', resize);
+        init();
+        draw();
+    })();
+
+    // ===== SCROLL REVEAL =====
+    (function() {
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const parent = el.parentElement;
+                    const siblings = parent ? Array.from(parent.querySelectorAll('.reveal')) : [];
+                    const idx = siblings.indexOf(el);
+                    const delay = idx >= 0 ? idx * 0.1 : 0;
+                    el.style.transitionDelay = delay + 's';
+                    el.classList.add('visible');
+                    observer.unobserve(el);
+                }
+            });
+        }, { threshold: 0.15 });
+        reveals.forEach(el => observer.observe(el));
+    })();
+
+    // ===== RSVP FORM =====
+    document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const required = ['parent_name', 'phone', 'child_name'];
+        let valid = true;
+
+        // Clear previous errors
+        this.querySelectorAll('.error-field').forEach(el => el.classList.remove('error-field'));
+
+        for (const id of required) {
+            const input = document.getElementById(id);
+            if (!input.value.trim()) {
+                input.classList.add('error-field');
+                valid = false;
             }
         }
 
-        function celebrate() {
-            spawnConfetti();
-            spawnBalloons();
+        if (!valid) return;
+
+        const data = {
+            timestamp: new Date().toISOString(),
+            parent_name: document.getElementById('parent_name').value.trim(),
+            phone: document.getElementById('phone').value.trim(),
+            email: document.getElementById('email').value.trim(),
+            child_name: document.getElementById('child_name').value.trim(),
+            num_kids: document.getElementById('num_kids').value,
+            adults_staying: document.getElementById('adults_staying').value,
+            allergies: document.getElementById('allergies').value.trim()
+        };
+
+        // Send to Google Apps Script
+        if (SCRIPT_URL && SCRIPT_URL !== "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE") {
+            fetch(SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            }).catch(() => {});
         }
 
-        // Auto-celebrate on load
-        window.addEventListener('load', () => { celebrate(); });
-    </script>
+        // Show success
+        this.style.display = 'none';
+        document.getElementById('successState').classList.add('show');
+    });
+</script>
 </body>
 </html>
