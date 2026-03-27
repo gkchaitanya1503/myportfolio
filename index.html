@@ -395,68 +395,6 @@
   </div>
 </section>
 
-<!-- Testimonials Section -->
-<section id="testimonials">
-  <div class="container">
-    <h2 class="section-heading text-center" data-aos="fade-up">What People Say</h2>
-    <div class="heading-underline" data-aos="fade-up" data-aos-delay="100"></div>
-    <p class="section-subtitle text-center" data-aos="fade-up" data-aos-delay="150">Feedback from colleagues and stakeholders</p>
-    <div class="testimonial-slider mt-5" data-aos="fade-up" data-aos-delay="200">
-      <div class="testimonial-track" id="testimonial-track">
-        <div class="testimonial-card">
-          <div class="testimonial-quote"><i class="fas fa-quote-left"></i></div>
-          <p>"Krishna's MCP server connecting Claude AI to Workday is a game-changer. Employees can now query their HR data in plain English — compensation, PTO, org structure — all self-served through AI."</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar"><i class="fas fa-user-circle"></i></div>
-            <div>
-              <h5>People Tech Leadership</h5>
-              <span>Lyft, Inc.</span>
-            </div>
-          </div>
-        </div>
-        <div class="testimonial-card">
-          <div class="testimonial-quote"><i class="fas fa-quote-left"></i></div>
-          <p>"During our acquisition, Krishna ensured zero downtime on all critical HR integrations. His deep knowledge of Workday security and Studio integrations was invaluable."</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar"><i class="fas fa-user-circle"></i></div>
-            <div>
-              <h5>HR Technology Director</h5>
-              <span>Gilead Health Sciences</span>
-            </div>
-          </div>
-        </div>
-        <div class="testimonial-card">
-          <div class="testimonial-quote"><i class="fas fa-quote-left"></i></div>
-          <p>"Krishna led our entire HCM and Payroll implementation with exceptional attention to detail. He managed both onshore and offshore teams seamlessly."</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar"><i class="fas fa-user-circle"></i></div>
-            <div>
-              <h5>Program Manager</h5>
-              <span>USAA</span>
-            </div>
-          </div>
-        </div>
-        <div class="testimonial-card">
-          <div class="testimonial-quote"><i class="fas fa-quote-left"></i></div>
-          <p>"The Greenhouse-to-Workday integration Krishna built automated our entire hiring pipeline. What used to take hours of manual entry now happens in real time."</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar"><i class="fas fa-user-circle"></i></div>
-            <div>
-              <h5>Recruiting Operations</h5>
-              <span>Dropbox</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-nav">
-        <button class="testimonial-prev" id="testimonial-prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
-        <div class="testimonial-dots" id="testimonial-dots"></div>
-        <button class="testimonial-next" id="testimonial-next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- Experience Section -->
 <section id="experience">
   <div class="container">
@@ -1066,54 +1004,6 @@
       card.addEventListener('mouseleave', function() {
         card.style.transform = '';
       });
-    });
-  })();
-
-  // ==================== TESTIMONIAL SLIDER ====================
-  (function() {
-    var track = document.getElementById('testimonial-track');
-    var cards = track.querySelectorAll('.testimonial-card');
-    var dotsWrap = document.getElementById('testimonial-dots');
-    var prevBtn = document.getElementById('testimonial-prev');
-    var nextBtn = document.getElementById('testimonial-next');
-    var current = 0;
-    var total = cards.length;
-    var autoTimer;
-
-    // Create dots
-    for (var i = 0; i < total; i++) {
-      var dot = document.createElement('button');
-      dot.className = 'testimonial-dot' + (i === 0 ? ' active' : '');
-      dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
-      dot.dataset.index = i;
-      dot.addEventListener('click', function() { goTo(+this.dataset.index); });
-      dotsWrap.appendChild(dot);
-    }
-
-    function goTo(idx) {
-      current = ((idx % total) + total) % total;
-      track.style.transform = 'translateX(-' + (current * 100) + '%)';
-      dotsWrap.querySelectorAll('.testimonial-dot').forEach(function(d, i) {
-        d.classList.toggle('active', i === current);
-      });
-      resetAuto();
-    }
-
-    prevBtn.addEventListener('click', function() { goTo(current - 1); });
-    nextBtn.addEventListener('click', function() { goTo(current + 1); });
-
-    function resetAuto() {
-      clearInterval(autoTimer);
-      autoTimer = setInterval(function() { goTo(current + 1); }, 5000);
-    }
-    resetAuto();
-
-    // Swipe support
-    var startX = 0;
-    track.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; });
-    track.addEventListener('touchend', function(e) {
-      var diff = startX - e.changedTouches[0].clientX;
-      if (Math.abs(diff) > 50) goTo(current + (diff > 0 ? 1 : -1));
     });
   })();
 
