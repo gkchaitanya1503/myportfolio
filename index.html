@@ -395,6 +395,68 @@
   </div>
 </section>
 
+<!-- Testimonials Section -->
+<section id="testimonials">
+  <div class="container">
+    <h2 class="section-heading text-center" data-aos="fade-up">What People Say</h2>
+    <div class="heading-underline" data-aos="fade-up" data-aos-delay="100"></div>
+    <p class="section-subtitle text-center" data-aos="fade-up" data-aos-delay="150">Real recommendations from LinkedIn</p>
+    <div class="testimonial-slider mt-5" data-aos="fade-up" data-aos-delay="200">
+      <div class="testimonial-track" id="testimonial-track">
+        <div class="testimonial-card">
+          <div class="testimonial-quote"><i class="fas fa-quote-left"></i></div>
+          <p>"Krishna and I worked together closely at USAA in the critical months before we launched our transition to Workday Recruiting. His steady hand, guidance, and deep expertise were foundational to ensuring we were able to go live with several important integrations to handle our back end assessment and other recruiting-related business processes. His important collaborative work with my team and with the Workday SMEs helped drive smart decisions and successful testing for our bedrock system. I would work with Krishna on any project in the future recommend him without hesitation!"</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar"><i class="fas fa-user-circle"></i></div>
+            <div>
+              <h5>Justo "Pete" Herrera</h5>
+              <span>Retired from the USAF and USAA</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-quote"><i class="fas fa-quote-left"></i></div>
+          <p>"I had the pleasure of working with Krishna Gutta during my brief consulting gig at a major bank. Krishna is a very solid integration lead and Workday Studio developer (his forte). Suffice to say, he helped me a lot and it's fair to say that my engagement wouldn't have been successful without his help. More power to you, Krishna, and hope to be able to work with you again in other projects!"</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar"><i class="fas fa-user-circle"></i></div>
+            <div>
+              <h5>Krsna Domine</h5>
+              <span>Founder at @1kos.com &bull; IBM</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-quote"><i class="fas fa-quote-left"></i></div>
+          <p>"I worked with &lsquo;GK&rsquo; for a large Workday phase 2 implementation / support project. At my arrival he was very welcoming and helped with all necessary support for me to become a productive member of the team. As a fellow work stream lead, I observed him provide both business and technical leadership as well as mentor junior resources. He successfully managed both local and offshore resources in a challenging, multitasking environment. GK has shown great leadership and poise under tight deadlines. You can always trust him to make time for you, no matter what deadlines he's facing, and typically with a smile on his face."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar"><i class="fas fa-user-circle"></i></div>
+            <div>
+              <h5>Joni Pitkanen</h5>
+              <span>Sr. Manager, Consulting at CrossVue</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-quote"><i class="fas fa-quote-left"></i></div>
+          <p>"I worked with Krishna for 6 months on a large, complex implementation and came to quickly value his many contributions and positive attitude. He is professional and hard-working and quickly teaches himself new skills and technical concepts as needed, to resolve any issues that come up and to meet deadlines. He is a team-player who is always willing to help others and can be counted on to do the right thing, at the right time. I was impressed by his initiative to learn new things and get things done, always with a friendly and kind attitude."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar"><i class="fas fa-user-circle"></i></div>
+            <div>
+              <h5>Katy Janfeshan</h5>
+              <span>Enterprise Technology Consultant</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-nav">
+        <button class="testimonial-prev" id="testimonial-prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+        <div class="testimonial-dots" id="testimonial-dots"></div>
+        <button class="testimonial-next" id="testimonial-next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- Experience Section -->
 <section id="experience">
   <div class="container">
@@ -1004,6 +1066,52 @@
       card.addEventListener('mouseleave', function() {
         card.style.transform = '';
       });
+    });
+  })();
+
+  // ==================== TESTIMONIAL SLIDER ====================
+  (function() {
+    var track = document.getElementById('testimonial-track');
+    var cards = track.querySelectorAll('.testimonial-card');
+    var dotsWrap = document.getElementById('testimonial-dots');
+    var prevBtn = document.getElementById('testimonial-prev');
+    var nextBtn = document.getElementById('testimonial-next');
+    var current = 0;
+    var total = cards.length;
+    var autoTimer;
+
+    for (var i = 0; i < total; i++) {
+      var dot = document.createElement('button');
+      dot.className = 'testimonial-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+      dot.dataset.index = i;
+      dot.addEventListener('click', function() { goTo(+this.dataset.index); });
+      dotsWrap.appendChild(dot);
+    }
+
+    function goTo(idx) {
+      current = ((idx % total) + total) % total;
+      track.style.transform = 'translateX(-' + (current * 100) + '%)';
+      dotsWrap.querySelectorAll('.testimonial-dot').forEach(function(d, i) {
+        d.classList.toggle('active', i === current);
+      });
+      resetAuto();
+    }
+
+    prevBtn.addEventListener('click', function() { goTo(current - 1); });
+    nextBtn.addEventListener('click', function() { goTo(current + 1); });
+
+    function resetAuto() {
+      clearInterval(autoTimer);
+      autoTimer = setInterval(function() { goTo(current + 1); }, 5000);
+    }
+    resetAuto();
+
+    var startX = 0;
+    track.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; });
+    track.addEventListener('touchend', function(e) {
+      var diff = startX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) goTo(current + (diff > 0 ? 1 : -1));
     });
   })();
 
