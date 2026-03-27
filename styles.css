@@ -1531,18 +1531,24 @@ footer p {
   margin: 0 auto;
   overflow: hidden;
   position: relative;
+  width: 100%;
 }
 
 .testimonial-track {
   display: flex;
   transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
 }
 
 .testimonial-card {
   min-width: 100%;
+  max-width: 100%;
+  width: 100%;
   padding: 2.5rem;
   text-align: center;
   flex-shrink: 0;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .testimonial-quote {
@@ -1558,11 +1564,13 @@ footer p {
 }
 
 .testimonial-card p {
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: var(--slate);
   line-height: 1.8;
   font-style: italic;
   margin-bottom: 1.5rem;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .testimonial-author {
