@@ -2,7 +2,7 @@
 TEAM_NAME = "IamGK"
 LEAGUE_NAME = "EFICENS DENVER DRAGONS"
 CURRENT_SQUAD = {
-    "I. Kishan":  {"team": "SRH", "role": "WK",   "credits": 10.5, "overseas": True},
+    "I. Kishan":  {"team": "SRH", "role": "WK",   "credits": 10.5, "overseas": False},
     "F. Allen":   {"team": "KKR", "role": "WK",   "credits": 7.0,  "overseas": True},
     "T. Varma":   {"team": "MI",  "role": "BAT",  "credits": 10.0, "overseas": False},
     "C. Green":   {"team": "KKR", "role": "BAT",  "credits": 8.0,  "overseas": True},
