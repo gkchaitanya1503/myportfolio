@@ -1,0 +1,50 @@
+name: 🏏 IPL Fantasy Daily Bot
+on:
+  schedule:
+    - cron: '30 8 * * *'   # 2:00 PM IST — daily squad check
+    - cron: '30 13 * * *'  # 7:00 PM IST — toss time alert
+  workflow_dispatch:        # manual trigger anytime
+jobs:
+  daily-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run IPL Bot
+        run: python ipl_bot.py | tee report.txt
+      - name: Check for urgent alerts
+        run: |
+          if grep -q "🚨" report.txt; then
+            echo "HAS_ALERTS=true" >> $GITHUB_ENV
+          fi
+      - name: Save report
+        uses: actions/upload-artifact@v4
+        with:
+          name: fantasy-report-${{ github.run_number }}
+          path: report.txt
+          retention-days: 7
+      - name: Push notification (urgent only)
+        if: env.HAS_ALERTS == 'true'
+        run: |
+          curl -d "🚨 IPL Fantasy Alert for IamGK! Squad issue detected. Check GitHub Actions now." \
+            ntfy.sh/iamgk-ipl-fantasy || true
+  toss-alert:
+    runs-on: ubuntu-latest
+    if: github.event.schedule == '30 13 * * *' || github.event_name == 'workflow_dispatch'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Toss time report
+        run: python ipl_bot.py
+      - name: Send toss notification
+        run: |
+          curl -d "🏏 TOSS TIME! 30 mins to match. Check IamGK fantasy team & lock transfers before 7:30 PM IST!" \
+            ntfy.sh/iamgk-ipl-fantasy || true
