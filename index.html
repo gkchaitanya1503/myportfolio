@@ -222,30 +222,34 @@
         </a>
       </div>
 
-      <!-- Workday Studio MCP (coming soon) -->
+      <!-- Workday Studio MCP -->
       <div class="col-lg-6 mb-4" data-aos="fade-up" data-aos-delay="200">
-        <div class="project-card project-card-upcoming">
-          <div class="project-card-header">
-            <div class="project-icon"><i class="fas fa-code"></i></div>
-            <div class="project-badges">
-              <span class="project-status project-status-building"><i class="fas fa-hammer mr-1"></i>In Progress</span>
+        <a href="https://github.com/gkchaitanya1503/workday-studio-mcp" target="_blank" rel="noopener noreferrer" class="project-card-link">
+          <div class="project-card project-card-featured">
+            <div class="project-card-header">
+              <div class="project-icon"><i class="fas fa-code"></i></div>
+              <div class="project-badges">
+                <span class="project-status project-status-live"><span class="status-pulse"></span>Live</span>
+                <span class="project-star"><i class="fas fa-tools"></i>19 Tools</span>
+              </div>
+            </div>
+            <h3 class="project-title">Workday Studio MCP</h3>
+            <p class="project-tagline">Claude AI reads, writes, plans, and validates Studio integrations</p>
+            <p class="project-description">Local MCP server giving Claude direct access to Workday Studio workspaces — 19 tools across navigation, file management, integration planning, assembly editing, XSL transforms, and XML validation. No manual XML copying.</p>
+            <div class="project-tech-stack">
+              <span class="tech-badge">MCP</span>
+              <span class="tech-badge">Claude AI</span>
+              <span class="tech-badge">Node.js</span>
+              <span class="tech-badge">JavaScript</span>
+              <span class="tech-badge">Workday Studio</span>
+              <span class="tech-badge">XML / XSLT</span>
+            </div>
+            <div class="project-footer">
+              <span class="project-meta"><i class="fab fa-github mr-1"></i>gkchaitanya1503/workday-studio-mcp</span>
+              <span class="project-cta">View Code <i class="fas fa-arrow-right"></i></span>
             </div>
           </div>
-          <h3 class="project-title">Workday Studio MCP</h3>
-          <p class="project-tagline">Bringing Claude AI into the Workday Studio developer workflow</p>
-          <p class="project-description">Next-gen MCP server that exposes Workday Studio integration development to Claude — write, test, and deploy Studio integrations with AI assistance. Currently in active development.</p>
-          <div class="project-tech-stack">
-            <span class="tech-badge">MCP</span>
-            <span class="tech-badge">Claude AI</span>
-            <span class="tech-badge">TypeScript</span>
-            <span class="tech-badge">Workday Studio</span>
-            <span class="tech-badge">XSLT</span>
-          </div>
-          <div class="project-footer">
-            <span class="project-meta"><i class="fas fa-clock mr-1"></i>Coming soon</span>
-            <span class="project-cta project-cta-disabled">Stay tuned <i class="fas fa-hourglass-half"></i></span>
-          </div>
-        </div>
+        </a>
       </div>
 
       <!-- Jira-Workday Automation -->
@@ -1367,9 +1371,9 @@
         } else if (match(low, ['location','where','live','based','city','denver','colorado','boulder'])) {
           addBotMsg("Krishna is based in <strong>Boulder, Colorado</strong>.");
         } else if (match(low, ['mcp','model context','protocol','claude','anthropic','27 tool'])) {
-          addBotMsg("Krishna pioneered <strong>AI-augmented HR infrastructure</strong>:<br>&#8226; Built a production <strong>Model Context Protocol (MCP) server</strong> exposing <strong>27 Workday HR tools</strong> to Claude AI — <a href='https://github.com/gkchaitanya1503/workday-oauth-poc' target='_blank'>view on GitHub</a><br>&#8226; Uses <strong>OAuth 2.0 PKCE</strong> and <strong>Okta SSO</strong> for secure authentication<br>&#8226; Enables employees to self-serve comp, PTO, org structure, and inbox approvals in plain English<br>&#8226; Also built a <strong>Jira-Workday automation</strong> using TypeScript MCP servers and Claude's API<br>&#8226; <strong>Workday Studio MCP</strong> in active development");
+          addBotMsg("Krishna pioneered <strong>AI-augmented HR infrastructure</strong>:<br>&#8226; Built a production <strong>Model Context Protocol (MCP) server</strong> exposing <strong>27 Workday HR tools</strong> to Claude AI — <a href='https://github.com/gkchaitanya1503/workday-oauth-poc' target='_blank'>view on GitHub</a><br>&#8226; Uses <strong>OAuth 2.0 PKCE</strong> and <strong>Okta SSO</strong> for secure authentication<br>&#8226; Enables employees to self-serve comp, PTO, org structure, and inbox approvals in plain English<br>&#8226; Also built a <strong>Jira-Workday automation</strong> using TypeScript MCP servers and Claude's API<br>&#8226; <strong>Workday Studio MCP</strong> — 19 tools for reading, writing, and validating Studio integrations (<a href='https://github.com/gkchaitanya1503/workday-studio-mcp' target='_blank'>GitHub</a>)");
         } else if (match(low, ['project','github','repo','open source','code'])) {
-          addBotMsg("Check out Krishna's featured projects:<br>&#8226; <strong>Workday MCP Server</strong> — 27 Workday tools for Claude AI (<a href='https://github.com/gkchaitanya1503/workday-oauth-poc' target='_blank'>GitHub</a>)<br>&#8226; <strong>Workday Studio MCP</strong> — In progress, bringing Claude into Studio dev workflows<br>&#8226; <strong>Jira x Workday Automation</strong> — BOT commands routed to Claude + Workday<br>&#8226; <strong>This Portfolio</strong> (<a href='https://github.com/gkchaitanya1503/myportfolio' target='_blank'>GitHub</a>)<br><br>All repos at <a href='https://github.com/gkchaitanya1503' target='_blank'>github.com/gkchaitanya1503</a>");
+          addBotMsg("Check out Krishna's featured projects:<br>&#8226; <strong>Workday MCP Server</strong> — 27 Workday tools for Claude AI (<a href='https://github.com/gkchaitanya1503/workday-oauth-poc' target='_blank'>GitHub</a>)<br>&#8226; <strong>Workday Studio MCP</strong> — 19 tools for Claude to read/write/validate Studio integrations (<a href='https://github.com/gkchaitanya1503/workday-studio-mcp' target='_blank'>GitHub</a>)<br>&#8226; <strong>Jira x Workday Automation</strong> — BOT commands routed to Claude + Workday<br>&#8226; <strong>This Portfolio</strong> (<a href='https://github.com/gkchaitanya1503/myportfolio' target='_blank'>GitHub</a>)<br><br>All repos at <a href='https://github.com/gkchaitanya1503' target='_blank'>github.com/gkchaitanya1503</a>");
         } else if (match(low, ['workato','automation','agentic','ai '])) {
           addBotMsg("Krishna is at the forefront of <strong>AI + HR automation</strong>:<br>&#8226; Built a production <strong>MCP server</strong> connecting Claude AI to Workday at Lyft<br>&#8226; <strong>Workato Agentic AI Basics</strong> certification (Dec 2025)<br>&#8226; <strong>Workato Foundations Level 1</strong> certification (Dec 2025)<br>&#8226; Developed Jira-Workday automation using <strong>TypeScript MCP servers</strong> and <strong>Claude's API</strong>");
         } else if (match(low, ['follower','linkedin follow','network','connection'])) {
